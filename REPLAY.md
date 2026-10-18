@@ -29,6 +29,18 @@ of the checking contract; a transcript saying PASS alone is not sufficient.
 
 ## Historical records and missing large files
 
+The supplied original `out8.txt` raw split-coefficient dump is preserved in the
+private intake but omitted from this public export as redundant data. It was
+not missing from the supplied bundle. Regenerate it from included source/data:
+
+```sh
+cc -O2 -o /tmp/umsr-splitrel splitrel.c
+/tmp/umsr-splitrel < g8.g6 > /tmp/umsr-out8.txt
+```
+
+This historical split-coefficient dump is not an input to the boundary-case
+release replay, which compiles the same source and directly reads `g8.g6`.
+
 The original `logs/` and `results/` are retained historical evidence. Fresh
 receipts are identified separately; their exact source hashes and coverage must
 be inspected before reuse. Base-case corpus completeness is inherited from the
