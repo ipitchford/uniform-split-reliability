@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this unrefereed mathematical candidate and preserve its scope qualifications."
+title: "Uniformly most split reliable graphs: a complete answer outside two edge counts"
+type: article
+authors:
+  - name: Anonymous
+version: 1.0.0
+doi: 10.5281/zenodo.23450265
+date-released: 2026-10-18
+repository-code: "https://github.com/ipitchford/uniform-split-reliability"
+license: CC0-1.0
+abstract: >-
+  An unrefereed candidate classifies existence of uniformly most split reliable
+  graphs outside two edge counts at every order n>=7, completes the classification
+  through n=51 using exact finite certificates, and proves sufficient cone
+  comparisons on explicit all-order probability intervals. The unrestricted-order
+  middle interval and the two uniform boundary cases remain unresolved.

@@ -1,0 +1,11 @@
+Release replay: Python 3 standard library and a C compiler; no pip dependency.
+See verification/reproduce.sh for the exact executable entry point and scope.
+The cone coefficient algorithms use arbitrary-precision Python integers.
+The C implementation has a bounded supported graph/integer range; inspect its
+checks before extending beyond the shipped replay corpora.
+Historical/exploratory scripts may require networkx, numpy or sympy;
+these are not required for verification/reproduce.sh.
+Paper build: Pandoc and a LaTeX engine with amsmath, amssymb and amsthm.
+Graph corpus regeneration: upstream nauty/geng, separately obtained/licensed.
+No prebuilt platform-specific executable is required by the public package.
+Actual release runtime versions are recorded in the retained replay receipts.

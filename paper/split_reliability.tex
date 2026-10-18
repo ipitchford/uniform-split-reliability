@@ -1,0 +1,1067 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Uniformly most split reliable graphs: a complete answer outside two edge counts},
+  pdfauthor={Anonymous},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Uniformly most split reliable graphs: a complete answer outside
+two edge counts\thanks{Research package:
+https://doi.org/10.5281/zenodo.23450265}}
+\author{Anonymous}
+\date{18 October 2026 · Version 1.0.0 · Unrefereed candidate}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}\label{abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+A network with two distinguished terminals is split successfully when
+independent edge failures leave exactly two connected components, one
+containing each terminal. We ask when a connected simple graph with
+fixed numbers of vertices and edges maximises this probability for every
+common edge-retention probability. For \(n\ge7\), we prove nonexistence
+for \(n\le m\le\binom n2-n-1\) and existence for \(m\ge\binom n2-n+2\);
+trees admit an optimiser by earlier work. Only two edge counts per order
+remain conditional. We reduce those cases to an explicit family of
+cone-reliability inequalities and certify the required inequalities in
+exact integer arithmetic through cone order \(50\), completing the
+existence classification for \(7\le n\le51\). The structural argument
+combines a prior classification of local optimisers with explicit
+spanning-tree competitors and compatible extrema in the identity
+\(\mathrm{SR}_{s,t}(H)=\mathrm{Rel}(H/st)-\mathrm{Rel}(H)\). We also
+prove the boundary cone comparison at every order for \(p\ge1/2\) and on
+an explicit positive interval near zero. The intervening probability
+range remains open at unrestricted orders. We distinguish the universal
+written proofs, the finite certificates needed for the boundary result,
+and supplementary computational corroboration.
+
+\section{Introduction}\label{introduction}
+
+\subsection{Why this optimisation problem is
+different}\label{why-this-optimisation-problem-is-different}
+
+Ordinary network reliability rewards keeping every vertex connected.
+Here the desired outcome is different: two distinguished sources must
+remain separated, but every other vertex must still be connected to
+exactly one of them. A surviving network with three components fails
+this requirement, as does one connected component containing both
+sources. The model is an idealised independent-edge failure model, not a
+validated design prescription for a physical network.
+
+The word \emph{uniformly} is the demanding part. We fix both the number
+of vertices and the number of edges, and ask whether one design is best
+for \textbf{every} common edge-retention probability. A design that wins
+when most edges survive can lose when most fail. Consequently,
+nonexistence of a uniform optimiser does not mean that no best design
+exists at a specified probability; it means that the best choice cannot
+be made independently of that probability.
+
+Our proof separates these competing endpoint requirements. Near complete
+edge failure, spanning two-forests determine the first nonzero term.
+Near perfect edge retention, a prior classification forces a particular
+split polynomial. In the intermediate density range these requirements
+conflict. In the dense range, identifying the two sources converts the
+comparison into two compatible all-terminal reliability comparisons.
+
+\subsection{Problem and prior results}\label{problem-and-prior-results}
+
+Let \(H\) be a connected simple graph with \(n\) vertices and \(m\)
+edges and let \(s\ne t\) be two of its vertices, the terminals. Each
+edge is deleted independently with probability \(1-p\). The
+\emph{all-terminal reliability} \(\mathrm{Rel}(H;p)\) is the probability
+that the surviving spanning subgraph is connected. The \emph{split
+reliability} \(\mathrm{SR}_{s,t}(H;p)\), introduced by Brown and Mol
+(2017) and studied as a uniform optimisation problem by Brown and
+McMullin (2023), is the probability that the surviving spanning subgraph
+has exactly two connected components, one containing \(s\) and the other
+containing \(t\): every vertex can still communicate with exactly one of
+the two terminals. Writing \(N_i=N_i(H)\) for the number of such
+\emph{split states} with exactly \(i\) surviving edges,
+\[\mathrm{SR}_{s,t}(H;p)=\sum_{i=n-2}^{m-1}N_i(H)\,p^i(1-p)^{m-i}.\] Let
+\(\mathcal T_{n,m}\) be the class of two-terminal connected simple
+graphs with \(n\) vertices and \(m\) edges. A member \(G\) is
+\emph{uniformly most split reliable} (UMSR) in \(\mathcal T_{n,m}\) if
+\(\mathrm{SR}_G(p)\ge\mathrm{SR}_H(p)\) for every
+\(H\in\mathcal T_{n,m}\) and every \(p\in[0,1]\). Brown and McMullin
+asked for which pairs \((n,m)\) such a graph exists. They showed that a
+UMSR graph always exists for \(m=n-1\) (the path with terminals at its
+ends), for \(m=\binom n2\) and for \(m=\binom n2-1\), that none exists
+for \(m=n\ge 6\), and by computation that for \(n\le 5\) one exists for
+every \(m\), for \(n=6\) one exists unless \(m\in\{6,8\}\), and for
+\(n=7\) one exists if and only if \(m=6\) or \(14\le m\le 21\). The
+remaining cases were left open. Romero (2025) characterised the
+\emph{locally} most split reliable graphs (those optimal for \(p\) close
+to \(1\)): they are exactly the two-terminal graphs with the same split
+reliability polynomial as a two-terminal balloon graph \(G_{n,m}\).
+Consequently any UMSR graph has the split polynomial of \(G_{n,m}\). He
+proved that no UMSR graph exists when \(n\ge 7\) and
+\(n\le m\le\binom{n-3}{2}+3\), and asked about the range
+\(\binom{n-3}2+4\le m\le\binom n2-2\).
+
+Our main result answers this for all but two values of \(m\) for each
+\(n\), and for those two values reduces the question to a well known
+conjecture in all-terminal reliability.
+
+\begin{theorem}[Main theorem]\label{thm:main}
+Let $n\ge 7$ and $n-1\le m\le\binom n2$, and write $k=\binom n2-m$ for the number of missing edges.
+\begin{enumerate}
+\item[(i)] If $m=n-1$ then a UMSR graph exists (the path with the terminals at its ends).
+\item[(ii)] If $n\le m\le\binom n2-n-1$, equivalently $n+1\le k\le\binom n2-n$, then no UMSR graph exists in $\mathcal T_{n,m}$.
+\item[(iii)] If $m\ge\binom n2-n+2$, equivalently $k\le n-2$, then the two-terminal balloon graph $G_{n,m}$ (Definition \ref{def:balloon}) is UMSR.
+\item[(iv)] If $m\in\{\binom n2-n,\binom n2-n+1\}$, equivalently $k\in\{n-1,n\}$, then $G_{n,m}$ is UMSR provided the balloon graph $B_{n,m}$ is uniformly least reliable among connected graphs with $n$ vertices and $m$ edges (in the all-terminal sense). This proviso holds for $7\le n\le 51$, and for every $n\ge 11$ it follows from inequality $(\star)_{n-1,\varepsilon}$ of the boundary-reduction subsection (Theorem \ref{thm:reduction}).
+\end{enumerate}
+In particular, for $7\le n\le 51$ a UMSR graph exists in $\mathcal T_{n,m}$ if and only if $m=n-1$ or $m\ge\binom n2-n$.
+\end{theorem}
+
+For \(7\le n\le51\), the classification of vertex-and-edge counts is
+simple: a uniform optimiser exists precisely for trees or when at most
+\(n\) edges are missing. For larger orders the two boundary edge counts
+remain conditional. This is an existence classification, not a claim
+that every graph in an admissible class is optimal. Part (ii) is new for
+\(\binom{n-3}2+4\le m\le\binom n2-n-1\) (for smaller \(m\) it is
+Romero's Theorem 12). Part (iii) is new for \(k\ge 2\). The two edge
+counts in (iv) are the two values immediately below the known dense
+range for the all-terminal ``uniformly least reliable graph'' question:
+Petingi, Saccoman and Schoppmann (1996) proved that balloon graphs are
+uniformly least reliable for \(m\ge\binom{n-1}2+1\) (that is,
+\(k\le n-2\)), and Romero (2022) proved the conjecture of Boesch,
+Satyanarayana and Suffel for \(m\le n+3\); the values \(m=\binom{n-1}2\)
+and \(\binom{n-1}2-1\) lie just below the dense range. Our reduction
+shows that progress on that conjecture at these two edge counts
+immediately completes the split reliability picture, and Theorem
+\ref{thm:reduction} reduces the conjecture at these two edge counts, for
+all \(n\), to a family of inequalities between explicit cone graphs,
+which we verify exactly for \(n\le51\).
+
+The reader can follow three proof stages. First, the preliminaries
+establish the identification identity and exchange tool. Next, the
+nonexistence argument uses Romero's candidate theorem and two explicit
+competitors. Finally, the dense-existence argument combines
+identified-graph maximality with an imported all-terminal minimum
+theorem, then isolates the two boundary cases. The computation section
+distinguishes the exact finite certificates from supplementary checks.
+Readers interested chiefly in the scope can read the main theorem, the
+small triangle example, and the final discussion before the technical
+proofs.
+
+\section{Preliminaries}\label{preliminaries}
+
+The following notation separates three objects that must not be
+conflated: the original two-terminal graph, its terminal identification,
+and the ordinary balloon graph used in a least-reliability theorem.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Symbol
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role in the proof
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(H,s,t\) & Connected simple graph and its two distinct terminals &
+Competing network \\
+\(n,m,k\) & Vertices, edges, and \(k=\binom n2-m\) missing edges & Fixed
+comparison class \\
+\(p,q\) & Edge retention and failure probabilities, \(q=1-p\) & Uniform
+comparison variable \\
+\(H/st\) & Terminal identification, with parallel edges retained & First
+term of the identity \\
+\(B_{n,m}\) & Ordinary balloon graph & All-terminal minimisation \\
+\(G_{n,m}\) & Balloon with diameter terminals & Split-reliability
+candidate \\
+\(N_i,c_i\) & Split-state and connected-state edge counts & Exact finite
+certificates \\
+\(C_N(s)\) & Clique on \(N-1\) vertices plus a vertex with \(s\)
+neighbours & Boundary reduction \\
+\end{longtable}
+}
+
+\subsection{Notation}\label{notation}
+
+Graphs are finite; simple unless stated otherwise. For a loopless
+multigraph \(Y\) we write \(\mu_Y(uv)\) for the number of \(uv\) edges
+and \(e_v(U)=\sum_{u\in U}\mu_Y(vu)\) for the number of edges (with
+multiplicity) from \(v\) into a vertex set \(U\). \(K_q\) is the
+complete graph, \(K_{1,a}\) the star with \(a\) leaves, \(K_2\) a single
+edge, and \(K_q-F\) denotes \(K_q\) with the edge set of a graph \(F\)
+on (a subset of) its vertices removed. \(\tau(Y)\) is the number of
+spanning trees of \(Y\) and \(c_i(Y)\) the number of connected spanning
+subgraphs with exactly \(i\) edges, so that
+\(\mathrm{Rel}(Y;p)=\sum_i c_i(Y)p^i(1-p)^{|E(Y)|-i}\) and
+\(\mathrm{Rel}(Y;p)=\tau(Y)p^{|V(Y)|-1}+O(p^{|V(Y)|})\) as \(p\to 0\).
+The \emph{two-terminal} version of a graph carries an unordered pair
+\(\{s,t\}\) of distinct terminals; the split polynomial is symmetric in
+\(s\) and \(t\).
+
+A \emph{split-\((s,t)\)-bridge} of \(H\) is an edge whose deletion
+leaves \(s\) and \(t\) in different components. Since \(N_{m-1}(H)\)
+counts single edges whose deletion produces a split state,
+\(N_{m-1}(H)\) equals the number of split-\((s,t)\)-bridges.
+
+For a two-terminal graph \(H\) we write \(H/st\) for the multigraph
+obtained by identifying \(s\) and \(t\) into a single vertex \(z\) (an
+\(st\) edge becomes a loop, which plays no role for connectivity and is
+discarded). Thus
+\(\mu_{H/st}(zw)=[sw\in E(H)]+[tw\in E(H)]\in\{0,1,2\}\) for
+\(w\ne s,t\), and \(H/st\) is simple away from \(z\).
+
+\subsection{\texorpdfstring{Balloon graphs and the candidate
+\(G_{n,m}\)}{Balloon graphs and the candidate G\_\{n,m\}}}\label{balloon-graphs-and-the-candidate-g_nm}
+
+\begin{definition}[Balloon graphs, after Romero 2025]\label{def:balloon}
+For $n\ge 4$ and $n\le m\le\binom n2$ the balloon graph $B_{n,m}$ is defined by: if $m\ge\binom{n-1}2+2$, $B_{n,m}$ is $K_{n-1}$ together with one further vertex joined to $m-\binom{n-1}2$ vertices of the clique; $B_{4,4}$ is a triangle with a pendant vertex; otherwise $B_{n,m}$ is $B_{n-1,m-1}$ with a new pendant vertex attached to a vertex of minimum degree. The two-terminal balloon graph $G_{n,m}$ is $B_{n,m}$ with terminals at distance equal to the diameter of $B_{n,m}$.
+\end{definition}
+
+Romero (2025, Theorem 10) proves that \(G_{n,m}\) is unique up to
+isomorphism and that the locally most split reliable graphs in
+\(\mathcal T_{n,m}\) are exactly the two-terminal graphs with the same
+split polynomial as \(G_{n,m}\) (``split-equivalent'' to it). We shall
+only need the explicit form of \(G_{n,m}\) in the ranges that matter,
+which is read off directly from the definition (with \(k=\binom n2-m\)):
+
+\begin{itemize}
+\tightlist
+\item
+  \(0\le k\le n-2\) (so \(m\ge\binom{n-1}2+1\)): \(G_{n,m}=K_n-K_{1,k}\)
+  where the missing star is centred at \(s\) and \(t\) is one of its
+  leaves (for \(k=0\) the terminals are any two vertices). Thus \(s\)
+  has degree \(n-1-k\), every other vertex is adjacent to everything
+  except possibly \(s\), and \(s,t\) are non-adjacent when \(k\ge 1\).
+\item
+  \(k=n-1\): \(s\) is a pendant vertex attached to \(u\), the other
+  \(n-1\) vertices induce \(K_{n-1}\) minus one edge \(ux\), and
+  \(t=x\).
+\item
+  \(k=n\): \(s\) is a pendant vertex attached to \(u\), the other
+  \(n-1\) vertices induce \(K_{n-1}\) minus the two edges \(ux,uy\), and
+  \(t=x\).
+\item
+  \(n+1\le k\le 2n-6\) (regime A1 below): \(s\) is pendant at \(u\); the
+  other \(n-1\) vertices induce \(K_{n-1}-K_{1,r}\) with the missing
+  star centred at \(u\), where \(r=k-n+2\in[3,n-4]\); and \(t\) is a
+  leaf of that star (a non-neighbour of \(u\)).
+\item
+  \(2n-5\le k\le 3n-10\) (regime A2 below): \(s\) is the end of a
+  pendant path \(s\!-\!w\!-\!u\) of length two; the other \(n-2\)
+  vertices induce \(K_{n-2}-K_{1,r''}\) with the missing star centred at
+  \(u\), where \(r''=k-2n+5\in[0,n-5]\); and \(t\) is a leaf of that
+  star (any vertex of the clique other than \(u\) when \(r''=0\)).
+\end{itemize}
+
+These descriptions specify the representatives used below. The proof
+uses equality of split polynomials, not uniqueness of all optimal
+two-terminal graphs.
+
+\subsection{\texorpdfstring{Behaviour near \(p=0\) and
+\(p=1\)}{Behaviour near p=0 and p=1}}\label{behaviour-near-p0-and-p1}
+
+The following elementary observation is Lemma 3 of Romero (2025),
+attributed to Brown and McMullin.
+
+\begin{lemma}\label{lem:ends}
+Let $G,H\in\mathcal T_{n,m}$. If $N_i(G)=N_i(H)$ for all $i<i_0$ and $N_{i_0}(G)>N_{i_0}(H)$, then $\mathrm{SR}_G(p)>\mathrm{SR}_H(p)$ for all $p$ in some interval $(0,\delta)$. If $N_{m-j}(G)=N_{m-j}(H)$ for all $j<j_0$ and $N_{m-j_0}(G)>N_{m-j_0}(H)$, then $\mathrm{SR}_G(p)>\mathrm{SR}_H(p)$ for all $p$ in some interval $(1-\delta,1)$.
+\end{lemma}
+
+\begin{proof}
+$\mathrm{SR}_G-\mathrm{SR}_H=\sum_i\big(N_i(G)-N_i(H)\big)p^i(1-p)^{m-i}$, and the first non-vanishing term dominates near the relevant endpoint.
+\end{proof}
+
+Consequently a UMSR graph must maximise \(N_{n-2}\) over
+\(\mathcal T_{n,m}\) and must maximise the vector
+\((N_{m-1},N_{m-2},\dots)\) in lexicographic order. Nonexistence is
+proved by showing that these two requirements are incompatible.
+
+\subsection{Split reliability as a difference of
+reliabilities}\label{split-reliability-as-a-difference-of-reliabilities}
+
+\begin{lemma}\label{lem:identity}
+For every two-terminal graph $H$ and every $p$,
+$$\mathrm{SR}_{s,t}(H;p)=\mathrm{Rel}(H/st;p)-\mathrm{Rel}(H;p),$$
+where $\mathrm{Rel}(H/st;p)$ is the probability that the surviving edge set of $H$ is connected after $s$ and $t$ are identified. In particular $N_{n-2}(H)=\tau(H/st)$.
+\end{lemma}
+
+\begin{proof}
+A spanning subgraph of $H$ is connected in $H/st$ if and only if it is connected in $H$, or it has exactly two components with $s$ and $t$ in different ones. The two events are disjoint, and the second is the split event. The last claim compares the coefficients of $p^{n-2}$ as $p\to0$: $H/st$ has $n-1$ vertices, so $\mathrm{Rel}(H/st;p)=\tau(H/st)p^{n-2}+O(p^{n-1})$, whereas $\mathrm{Rel}(H;p)=O(p^{n-1})$.
+\end{proof}
+
+The second statement is the classical fact that the number of spanning
+\(2\)-forests of \(H\) separating \(s\) from \(t\) equals the number of
+spanning trees of \(H\) with \(s\) and \(t\) identified. We shall use it
+in both directions: in Section 3 to evaluate \(N_{n-2}\) of the
+candidates and competitors through spanning-tree counts of dense graphs,
+and in Section 4 to transfer the whole polynomial comparison to
+all-terminal reliability.
+
+\textbf{A three-vertex example and the loop convention.} Take a triangle
+with terminals \(s,t\) and third vertex \(v\). A split state consists of
+exactly one of \(sv,tv\): the edge \(st\) must be absent. Thus its split
+reliability is \(2p(1-p)^2\). Identification leaves two parallel edges
+from the merged vertex to \(v\), with reliability \(1-(1-p)^2=2p-p^2\);
+the triangle itself has reliability \(3p^2-2p^3\). Subtracting gives
+\(2p-4p^2+2p^3\), as required.
+
+Discarding the identified loop does not change a probability, but it
+does change edge-count coefficients. If \(X\) denotes the loopless
+identification, with \(c_i=0\) outside its coefficient range, the exact
+identity is \[N_i(H)=c_i(X)+\mathbf{1}_{st\in E(H)}c_{i-1}(X)-c_i(H).\]
+The extra term counts states in which the discarded loop is selected. In
+generating-polynomial form its contribution is multiplication by
+\(1+x\). All coefficient comparisons below use a common total edge
+count; silently subtracting coefficient vectors of different edge counts
+is not valid.
+
+\subsection{Spanning trees of nearly complete
+graphs}\label{spanning-trees-of-nearly-complete-graphs}
+
+\begin{lemma}\label{lem:trees}
+Let $F$ be a graph on a subset of the vertices of $K_q$, with Laplacian $L_F$ (as a matrix indexed by the vertices of $F$). Then
+$$\tau(K_q-F)=q^{\,q-2}\det\!\big(I-\tfrac1q L_F\big).$$
+Consequently, for $a\ge 1$,
+$$\tau(K_q-K_{1,a})=(q-a-1)(q-1)^{a-1}q^{\,q-a-2},\qquad
+\tau\big(K_q-(K_{1,a}\cup K_2)\big)=(q-a-1)(q-1)^{a-1}(q-2)\,q^{\,q-a-3},$$
+where in the second formula the star and the edge are vertex-disjoint.
+\end{lemma}
+
+\begin{proof}
+$L(K_q-F)=qI-J-L_F$, and $J$ (the all-ones matrix) commutes with $L_F$ because $L_F$ has zero row sums. Hence the two matrices are simultaneously diagonalisable, the nonzero eigenvalues of $L(K_q-F)$ are $q-\mu$ for $\mu$ running over the Laplacian eigenvalues of $F$ (extended by zeros to all $q$ vertices) with one zero removed, and by the matrix-tree theorem $\tau(K_q-F)=\tfrac1q\prod(q-\mu)=\tfrac1{q^2}\det(qI-L_F)=q^{q-2}\det(I-\tfrac1qL_F)$. The Laplacian eigenvalues of $K_{1,a}$ are $a+1$, $1$ (with multiplicity $a-1$) and $0$; those of $K_2$ are $2$ and $0$; the displayed formulas follow.
+\end{proof}
+
+\subsection{A multigraph exchange
+lemma}\label{a-multigraph-exchange-lemma}
+
+For a loopless multigraph \(Y\) and distinct vertices \(x,y,z\) let
+\(P_Y(xy\,|\,z)\) denote the probability (edges surviving independently
+with probability \(p\)) that the surviving spanning subgraph has exactly
+two connected components, one containing \(x\) and \(y\) and the other
+containing \(z\); let \(P_Y(x\,|\,y)\) denote the probability of exactly
+two components with \(x\) and \(y\) in different ones. For an edge
+\(xy\) (possibly already present) write \(Y+xy\) for \(Y\) with one
+additional \(xy\) edge. Adding the edge \(xy\) makes a surviving edge
+set connected exactly when it was connected or had exactly two
+components separating \(x\) from \(y\), so
+\[\mathrm{Rel}(Y+xy;p)=\mathrm{Rel}(Y;p)+p\,P_Y(x\,|\,y).\qquad\text{(2.1)}\]
+
+\begin{lemma}[Exchange lemma]\label{lem:exchange}
+Let $Y$ be a loopless multigraph and $a,b,c$ distinct vertices. Suppose that
+$$e_b(U)\le e_c(U)\qquad\text{for every }U\text{ with }a\in U\subseteq V(Y)\setminus\{b,c\}.$$
+Then $P_Y(ab\,|\,c)\le P_Y(ac\,|\,b)$ for every $p\in[0,1]$; consequently $P_Y(a\,|\,c)\le P_Y(a\,|\,b)$ and $\mathrm{Rel}(Y+ab;p)\ge\mathrm{Rel}(Y+ac;p)$ for every $p$.
+\end{lemma}
+
+\begin{proof}
+Let $E_0$ be the set of edges of $Y$ incident with neither $b$ nor $c$, and condition on the set $T$ of surviving edges of $E_0$. The components of $T$ partition $V'=V(Y)\setminus\{b,c\}$; call their vertex sets $U_1,\dots,U_r$ with $a\in U_1$. Given $T$, the events "$b$ has a surviving edge into $U_j$" (probability $\alpha_j=1-(1-p)^{e_b(U_j)}$), "$c$ has a surviving edge into $U_j$" (probability $\beta_j=1-(1-p)^{e_c(U_j)}$), for $j=1,\dots,r$, and "no $bc$ edge survives" (probability $(1-p)^{\mu(bc)}$) concern pairwise disjoint sets of edges and are therefore independent. The event $\{ab\,|\,c\}$ occurs exactly when no $bc$ edge survives, each $U_j$ is joined to exactly one of $b,c$, and $U_1$ is joined to $b$; hence
+$$P(ab\,|\,c\mid T)=(1-p)^{\mu(bc)}\,\alpha_1(1-\beta_1)\prod_{j\ge2}\big(\alpha_j(1-\beta_j)+\beta_j(1-\alpha_j)\big),$$
+and $P(ac\,|\,b\mid T)$ is the same expression with $\alpha_1(1-\beta_1)$ replaced by $\beta_1(1-\alpha_1)$. Since $\alpha_1(1-\beta_1)\le\beta_1(1-\alpha_1)$ is equivalent to $\alpha_1\le\beta_1$, that is to $e_b(U_1)\le e_c(U_1)$, which holds by hypothesis, the first claim follows by averaging over $T$. The second follows from $P_Y(a\,|\,c)=P_Y(ab\,|\,c)+P_Y(a\,|\,bc)$ and $P_Y(a\,|\,b)=P_Y(ac\,|\,b)+P_Y(a\,|\,bc)$, and the third from (2.1).
+\end{proof}
+
+This conditioning formulation belongs to the Kelmans/swing-surgery
+tradition (Kelmans, 1981; Satyanarayana, Schoppmann and Suffel, 1992).
+Brown, Colbourn and Devitt (1993) already extended reliability
+transformations to multigraphs, as explicitly recorded by Csikvári
+(2011, Section 2). We give a self-contained proof of the exact setwise
+condition used here, without claiming priority for the multigraph
+extension or a strict improvement over the 1993 hypotheses; the full
+1993 text was not available for an exact comparison. The same
+conditioning identifies the leading coefficient as \(p\to0\):
+
+\begin{corollary}\label{cor:trees}
+Under the hypothesis of Lemma \ref{lem:exchange},
+$$\tau(Y+ab)-\tau(Y+ac)=\sum_{T}\big(e_c(U_1)-e_b(U_1)\big)\prod_{j\ge2}\big(e_b(U_j)+e_c(U_j)\big)\ \ge 0,$$
+the sum over the spanning forests $T$ of $Y-\{b,c\}$, with $U_1,\dots,U_r$ the vertex sets of the trees of $T$ and $a\in U_1$. In particular, if $Y-\{b,c\}$ is connected and $\deg_Y(c)>\deg_Y(b)$ then $\tau(Y+ab)>\tau(Y+ac)$.
+\end{corollary}
+
+\begin{proof}
+By (2.1), $\mathrm{Rel}(Y+ab)-\mathrm{Rel}(Y+ac)=p\big(P_Y(ac\,|\,b)-P_Y(ab\,|\,c)\big)$, and the difference of the two conditional probabilities in the proof of Lemma \ref{lem:exchange} is $(1-p)^{\mu(bc)}(\beta_1-\alpha_1)\prod_{j\ge2}(\cdots)$. As $p\to0$, a given edge set $T$ with $r$ components has probability $p^{|T|}(1+O(p))$, which is $p^{|V'|-r}(1+O(p))$ when $T$ is a forest and is of higher order otherwise; $\beta_1-\alpha_1=p\,(e_c(U_1)-e_b(U_1))+O(p^2)$; and each factor $\alpha_j(1-\beta_j)+\beta_j(1-\alpha_j)=p\,(e_b(U_j)+e_c(U_j))+O(p^2)$. Collecting terms, $\mathrm{Rel}(Y+ab)-\mathrm{Rel}(Y+ac)=p^{|V'|+1}\sum_T(\cdots)+O(p^{|V'|+2})$, and $|V'|+1=|V(Y)|-1$ is the exponent of $p$ carrying $\tau$ in $\mathrm{Rel}$. Each term of the sum is nonnegative by hypothesis; a spanning tree $T$ of $Y-\{b,c\}$ contributes $e_c(V')-e_b(V')=\deg_Y(c)-\deg_Y(b)$.
+\end{proof}
+
+\section{Nonexistence in the remaining intermediate-density
+range}\label{nonexistence-in-the-remaining-intermediate-density-range}
+
+We use Romero's (2025, Theorem 10) characterization of locally most
+split reliable graphs: for the parameters considered here, every such
+graph is split-equivalent to the canonical balloon candidate
+\(G_{n,m}\). In particular, a UMSR graph \(H\) must satisfy
+\[\mathrm{SR}_H=\mathrm{SR}_{G_{n,m}},\qquad N_{n-2}(H)=N_{n-2}(G_{n,m}).\]
+Consequently it suffices to construct a connected simple two-terminal
+graph with the same numbers of vertices and edges and a strictly larger
+\(N_{n-2}\) coefficient. Such a graph beats \(G_{n,m}\) for all
+sufficiently small positive \(p\). This argument concerns
+split-equivalence, not uniqueness up to graph isomorphism.
+
+\subsection{Regime A1: one pendant
+terminal}\label{regime-a1-one-pendant-terminal}
+
+\begin{proposition}\label{prop:A1comp}
+Let $n\ge7$, $n+1\le k\le2n-6$, $m=\binom n2-k$, and $r=k-n+2$. No graph in $\mathcal T_{n,m}$ is UMSR.
+\end{proposition}
+
+\begin{proof}
+Here $3\le r\le n-4$. The canonical candidate consists of a core $C=K_{n-1}-K_{1,r}$, with missing star centred at $u$, and a pendant terminal $s$ at $u$; the other terminal $x$ is a missing-star leaf. Identifying $s$ and $x$ restores $ux$, so
+$$N_{n-2}(G_{n,m})=\tau(K_{n-1}-K_{1,r-1}).$$
+
+Construct $H'$ with a pendant terminal $s$ at $u$, other terminal $x$, and core
+$$H'-s=K_{n-1}-(K_{1,r-1}\cup K_2),$$
+where the missing star is centred at $u$, contains $x$ as a leaf, and is vertex-disjoint from the additional missing edge $bc$. The construction uses $r+2\le n-2$ core vertices. The core induced by vertices other than $u$ is a clique minus $bc$ and is connected; $u$ has $n-1-r\ge3$ neighbours in it. Thus $H'$ is connected and simple. Its number of missing edges is $(n-2)+(r-1)+1=k$.
+
+Identification restores $ux$. Applying the spanning-tree formulas of Lemma \ref{lem:trees},
+$$\frac{N_{n-2}(H')}{N_{n-2}(G_{n,m})}
+=\frac{\tau(K_{n-1}-(K_{1,r-2}\cup K_2))}{\tau(K_{n-1}-K_{1,r-1})}
+=\frac{(n-r)(n-3)}{(n-1-r)(n-2)}>1,$$
+since the numerator minus denominator of the last fraction is $r-2>0$. The candidate reduction above proves the assertion.
+\end{proof}
+
+\subsection{Regime A2: a pendant path of length
+two}\label{regime-a2-a-pendant-path-of-length-two}
+
+The preceding exchange lemma supplies a strict spanning-tree comparison
+without requiring a closed formula for every missing-star size.
+
+\begin{proposition}\label{prop:A2comp}
+Let $n\ge7$, $2n-5\le k\le3n-10$, $m=\binom n2-k$, and $r=k-2n+5$. No graph in $\mathcal T_{n,m}$ is UMSR.
+\end{proposition}
+
+\begin{proof}
+Put $q=n-2$, so $0\le r\le q-3$. Define a core $C$ on $q$ vertices as follows. For $r\ge1$, let $C=K_q-K_{1,r}$ with missing star centred at $u$ and choose a missing leaf $x$. For $r=0$, let $C=K_q$ and choose distinct vertices $u,x$. In particular, the zero-star case does not require a nonexistent missing leaf.
+
+The canonical candidate is obtained by adjoining the path $s-w-u$ to $C$, with terminals $s,x$. Its identified graph $\Gamma=G_{n,m}/sx$ consists of $C$ and the vertex $w$ joined exactly to $u,x$.
+
+Choose $\ell\in V(C)\setminus\{u,x\}$ adjacent to $u$ in $C$. There are $q-r-1\ge2$ choices when $r\ge1$, and $q-2\ge3$ when $r=0$. Choose any $a\in V(C)\setminus\{u,x,\ell\}$. The edge $a\ell$ belongs to $C$, whereas $aw$ is absent from $\Gamma$. Set
+$$\Gamma'=\Gamma-a\ell+aw.$$
+Form $H'$ by deleting $wx$ from $\Gamma'$ and adjoining a new pendant vertex $s$ at $w$, with terminals $s,x$. This is a simple graph with $n$ vertices and $\binom q2-r+2=m$ edges. It is connected: the subgraph of $C-a\ell$ induced by $V(C)\setminus\{u\}$ is a clique minus one edge on $q-1\ge4$ vertices, and $u$ retains its $q-1-r\ge2$ neighbours. Vertex $w$ is joined to $u$ and $a$, and $s$ to $w$. Identification of $s,x$ restores $wx$, giving $H'/sx=\Gamma'$.
+
+To compare spanning-tree counts, put $Y=\Gamma-a\ell$. In $Y$, $w$ has precisely the neighbours $u,x$, while $\ell$ is adjacent to every vertex other than $w,a,\ell$. Therefore, for every $a\in U\subseteq V(Y)\setminus\{w,\ell\}$,
+$$e_w(U)=|U\cap\{u,x\}|\le |U|-1=e_\ell(U).$$
+Moreover, $Y-\{w,\ell\}=C-\ell$ is connected: its vertices other than $u$ form a clique, and deleting $\ell$ leaves at least $q-2-r\ge1$ neighbours of $u$. Finally,
+$$\deg_Y(\ell)=q-2=n-4>2=\deg_Y(w).$$
+The strict spanning-tree corollary \ref{cor:trees}, with $(b,c)=(w,\ell)$, now gives
+$$N_{n-2}(H')=\tau(Y+aw)>\tau(Y+a\ell)=\tau(\Gamma)=N_{n-2}(G_{n,m}).$$
+This covers $r=0$ as well as $r\ge1$, and the candidate reduction proves the proposition.
+\end{proof}
+
+\begin{theorem}\label{thm:A}
+For $n\ge7$ and $\binom{n-3}2+4\le m\le\binom n2-n-1$, no graph in $\mathcal T_{n,m}$ is UMSR. Together with Romero (2025, Theorem 12), this gives nonexistence for every $n\le m\le\binom n2-n-1$.
+\end{theorem}
+
+\begin{proof}
+The two propositions cover all missing-edge counts $n+1\le k\le3n-10$, precisely the displayed range of $m$. Romero's Theorem 12 covers $n\le m\le\binom{n-3}2+3$.
+\end{proof}
+
+\section{\texorpdfstring{Existence for \(m\ge\binom n2-n+2\), and the
+two boundary
+values}{Existence for m\textbackslash ge\textbackslash binom n2-n+2, and the two boundary values}}\label{existence-for-mgebinom-n2-n2-and-the-two-boundary-values}
+
+\subsection{The identified graph of a two-terminal
+graph}\label{the-identified-graph-of-a-two-terminal-graph}
+
+Fix \(n\ge 4\), \(1\le k\le n\) and \(m=\binom n2-k\). Let
+\(d=n-1-k\ge-1\). Define the loopless multigraph \(X^{(k)}\) on \(n-1\)
+vertices as follows: for \(k\le n-1\), \(X^{(k)}\) is \(K_{n-1}\) with
+\(d\) additional edges parallel to \(d\) distinct edges at one fixed
+vertex \(z\) (so \(X^{(n-1)}=K_{n-1}\)); and \(X^{(n)}=K_{n-1}-e\). From
+the explicit description of \(G_{n,m}\) in the balloon-graph definition
+one checks directly that \(G_{n,m}/st\cong X^{(k)}\): for \(k\le n-2\)
+the merged vertex is joined twice to each of the \(n-1-k\) neighbours of
+\(s\) (all of which are neighbours of \(t\)) and once to every other
+vertex; for \(k=n-1\) the neighbourhoods of \(s\) and \(t\) are disjoint
+and together cover the other vertices; for \(k=n\) the same holds except
+that the edge \(uy\) is missing from the clique.
+
+\begin{lemma}\label{lem:identified}
+For every $H\in\mathcal T_{n,m}$ and every $p\in[0,1]$, $\ \mathrm{Rel}(H/st;p)\le\mathrm{Rel}(X^{(k)};p)$.
+\end{lemma}
+
+\begin{proof}
+Let $W=V(H)\setminus\{s,t\}$ and let $\mathfrak X$ be the family of loopless multigraphs $X$ on $W\cup\{z\}$ with exactly $m$ edges such that $X[W]$ is simple and $\mu(zw)\le2$ for all $w\in W$. If $st\notin E(H)$ then $H/st\in\mathfrak X$. If $st\in E(H)$, then $H/st$ (with its loop discarded) has $m-1$ edges, and since $k\ge1$ some edge of $K_n$ other than $st$ is missing from $H$; adding the corresponding edge (a $W$-edge, or one more copy of a $z$-edge) produces a member $X$ of $\mathfrak X$ with $\mathrm{Rel}(H/st)\le\mathrm{Rel}(X)$ by monotonicity. So it suffices to prove $\mathrm{Rel}(X)\le\mathrm{Rel}(X^{(k)})$ for $X\in\mathfrak X$.
+
+Describe $X\in\mathfrak X$ by the set $F_W$ of pairs of $W$ not joined in $X$ ($f_W=|F_W|$), the set $Z_0=\{w:\mu(zw)=0\}$ and the set $D_2=\{w:\mu(zw)=2\}$. Counting edges,
+$$|D_2|=d+f_W+|Z_0|.\qquad\text{(4.2)}$$
+Call $X$ *terminal* if $f_W=0$ and $Z_0=\emptyset$ when $d\ge0$, and if $f_W+|Z_0|=1$ and $D_2=\emptyset$ when $d=-1$. A terminal $X$ is isomorphic to $X^{(k)}$: for $d\ge0$ it is $K_{n-1}$ with exactly $d$ doubled edges at $z$ by (4.2); for $d=-1$ it is $K_{n-1}$ minus one edge. We show that every non-terminal $X\in\mathfrak X$ admits a move to some $X'\in\mathfrak X$ with $\mathrm{Rel}(X')\ge\mathrm{Rel}(X)$ that strictly decreases $\Phi(X)=2f_W+|Z_0|$; since $\Phi\ge0$ the process ends at a terminal graph, proving the lemma.
+
+*Move M1 (fill a missing $W$-edge).* Let $xy\in F_W$ with $\mu(zx)\ge1$ and $|Z_0\cap N_W(y)|\le\mu(zx)-1$, where $N_W(y)$ is the set of $W$-neighbours of $y$ in $X$. Let $Y$ be $X$ with one copy of $zx$ removed and $X'=Y+xy$. For $U$ with $x\in U\subseteq W\setminus\{y\}$,
+$$e_z(U)-e_y(U)=\big(\mu_X(zx)-1\big)+\sum_{u\in U\setminus\{x\}}\big(\mu_X(zu)-[uy\in E(X)]\big)\ \ge\ \mu_X(zx)-1-|Z_0\cap N_W(y)|\ \ge 0,$$
+so Lemma \ref{lem:exchange} with $(a,b,c)=(x,y,z)$ gives $\mathrm{Rel}(X')=\mathrm{Rel}(Y+xy)\ge\mathrm{Rel}(Y+xz)=\mathrm{Rel}(X)$. The move removes $xy$ from $F_W$ and adds $x$ to $Z_0$ only if $\mu_X(zx)=1$, so $\Phi$ decreases by at least $1$.
+
+*Move M3 (fill a missing $z$-edge).* Let $w\in Z_0$ and $v\in D_2$ with at most one $F_W$-neighbour of $v$ outside $N_{F_W}(w)\cup\{w\}$, where $N_{F_W}$ denotes neighbourhoods in the graph $F_W$. Let $Y$ be $X$ with one copy of $zv$ removed and $X'=Y+zw$. For $U$ with $z\in U\subseteq V(X)\setminus\{v,w\}$, the contribution of $z$ to $e_v(U)-e_w(U)$ is $\mu_Y(vz)-\mu_Y(wz)=1$, and each $u\in U\setminus\{z\}$ contributes $[uv\in E]-[uw\in E]=[uw\in F_W]-[uv\in F_W]\ge-1$, with $-1$ exactly when $uv\in F_W$ and $uw\notin F_W$. Hence $e_v(U)-e_w(U)\ge1-1=0$, and Lemma \ref{lem:exchange} with $(a,b,c)=(z,w,v)$ gives $\mathrm{Rel}(X')\ge\mathrm{Rel}(X)$. The move removes $w$ from $Z_0$ and $v$ from $D_2$, so $\Phi$ decreases by $1$.
+
+*A move always exists.* Suppose $X$ is non-terminal. If $Z_0=\emptyset$ then $f_W\ge1$ (for $d\ge0$) or $f_W\ge2$ (for $d=-1$), and M1 applies to any $xy\in F_W$ because its hypothesis reduces to $\mu(zx)\ge1$. If $Z_0\ne\emptyset$, then $D_2\ne\emptyset$ by (4.2) (for $d=-1$ non-terminality gives $f_W+|Z_0|\ge2$). If some $v\in D_2$ has $F_W$-degree at most $1$, M3 applies with any $w\in Z_0$. Otherwise every $v\in D_2$ has $F_W$-degree at least $2$, so $2f_W\ge\sum_{v\in D_2}\deg_{F_W}(v)\ge2|D_2|=2(d+f_W+|Z_0|)$, forcing $d=-1$, $|Z_0|=1$, and equality throughout: every edge of $F_W$ joins two vertices of $D_2$ of $F_W$-degree exactly $2$. Then $f_W\ge1$ by non-terminality, and for any $xy\in F_W$ we have $\mu(zx)=2$ and $|Z_0\cap N_W(y)|\le1$, so M1 applies.
+\end{proof}
+
+\subsection{Proof of parts (iii) and
+(iv)}\label{proof-of-parts-iii-and-iv}
+
+\begin{theorem}\label{thm:B}
+Let $n\ge 4$, $0\le k\le n-2$ and $m=\binom n2-k$. Then $G_{n,m}$ is uniformly most split reliable in $\mathcal T_{n,m}$.
+\end{theorem}
+
+\begin{proof}
+For $k=0$ there is nothing to prove. For $k\ge1$, by Lemma \ref{lem:identity}, Lemma \ref{lem:identified}, and the isomorphism $G_{n,m}/st\cong X^{(k)}$,
+$$\mathrm{SR}_H(p)=\mathrm{Rel}(H/st;p)-\mathrm{Rel}(H;p)\le\mathrm{Rel}(G_{n,m}/st;p)-\mathrm{Rel}(H;p).$$
+As an unlabelled graph $G_{n,m}$ is the balloon graph $K_{n-1}$ plus a vertex of degree $n-1-k\ge1$, and $m\ge\binom{n-1}2+1$; by the theorem of Petingi, Saccoman and Schoppmann (1996) this graph is uniformly least reliable among connected graphs with $n$ vertices and $m$ edges, so $\mathrm{Rel}(H;p)\ge\mathrm{Rel}(G_{n,m};p)$ for all $p$. Hence $\mathrm{SR}_H(p)\le\mathrm{SR}_{G_{n,m}}(p)$ for all $p$, which is what the definition requires.
+\end{proof}
+
+\begin{theorem}\label{thm:Bprime}
+Let $n\ge 7$ and $k\in\{n-1,n\}$, $m=\binom n2-k$. If $B_{n,m}$ is uniformly least reliable among connected graphs with $n$ vertices and $m$ edges, then $G_{n,m}$ is uniformly most split reliable in $\mathcal T_{n,m}$. The hypothesis holds for $7\le n\le 51$ (Corollary \ref{cor:n41}).
+\end{theorem}
+
+\begin{proof}
+The displayed inequality in the proof of Theorem \ref{thm:B} holds verbatim with Lemma \ref{lem:identified} for $k\in\{n-1,n\}$, and $G_{n,m}$ is $B_{n,m}$ as an unlabelled graph; the hypothesis supplies $\mathrm{Rel}(H)\ge\mathrm{Rel}(G_{n,m})$.
+\end{proof}
+
+The hypothesis of Theorem \ref{thm:Bprime} is only needed for graphs of
+minimum degree at least \(2\): if \(H\) has a pendant vertex then
+\(\mathrm{Rel}(H)=p\,\mathrm{Rel}(H')\) where \(H'\) has \(n-1\)
+vertices and \(m-1\ge\binom{n-2}2+1\) edges, and the
+Petingi--Saccoman--Schoppmann theorem applied to \(H'\) gives
+\(\mathrm{Rel}(H)\ge\mathrm{Rel}(B_{n,m})\). The rest of this section
+reduces the hypothesis, for all \(n\), to an explicit family of
+inequalities between reliabilities of cones over a complete graph, and
+verifies that inequality exactly for \(n\le 51\).
+
+\subsection{Reduction of the hypothesis to an inequality between two
+cones}\label{reduction-of-the-hypothesis-to-an-inequality-between-two-cones}
+
+For \(N\ge3\) and \(0\le s\le N-1\) let \(C_N(s)=K_N-K_{1,N-1-s}\)
+denote the \emph{cone graph}: a vertex \(u\) joined to \(s\) vertices of
+a clique \(K_{N-1}\). Thus
+\(K_{N}-K_{1,1+\varepsilon}=C_N(N-2-\varepsilon)\), and \(B_{n,m}\) for
+\(m=\binom{n-1}2-\varepsilon\) is \(C_{n-1}(n-3-\varepsilon)\) with a
+pendant vertex attached to a clique vertex. Write
+\(f_N(s;p)=\mathrm{Rel}(C_N(s);p)\) and \(q=1-p\).
+
+\begin{definition}[Inequality $(\star)_{N,\varepsilon}$]\label{def:star}
+Let $N\ge 7$ and $\varepsilon\in\{0,1\}$, and put $h=N-2-\varepsilon$. We say that $(\star)_{N,\varepsilon}$ holds if for every integer $d$ with $1\le d\le N-5-\varepsilon$ and every $p\in[0,1]$,
+$$(1-q^{d+1})\,f_N(h-d;p)\;\ge\;p\,f_N(h;p).\qquad\text{(4.3)}$$
+\end{definition}
+
+Both sides of (4.3) are reliabilities of multigraphs on \(N+1\) vertices
+with \(\binom{N-1}2+h+1\) edges: the right side is the balloon
+(\(C_N(h)\) with a pendant vertex \(w\) attached to a clique vertex
+\(x\)), the left side is \(C_N(h-d)\) with \(w\) attached to \(x\) by
+\(d+1\) parallel edges. So \((\star)\) says that taking \(d\) of the
+cone edges away from \(u\) and giving them to the pendant vertex, as
+parallel copies of its one edge, does not decrease reliability.
+Expanding \(1-q^{d+1}=\sum_{i\ge1}\binom{d+1}i p^iq^{d+1-i}\), (4.3) is
+implied by the coefficient-wise statement
+\[\sum_{i=1}^{d+1}\binom{d+1}{i}\,c_{j-i}\bigl(C_N(h-d)\bigr)\;\ge\;c_{j-1}\bigl(C_N(h)\bigr)\qquad\text{for all }j,\qquad\text{(4.4)}\]
+because the basis \(p^jq^{M-j}\) is nonnegative on \([0,1]\). Here
+\(c_j(G)\) is the number of connected spanning subgraphs of \(G\) with
+\(j\) edges.
+
+The reduction uses Kelmans's transformation. For two vertices \(u,v\) of
+a graph \(G\), the \emph{Kelmans transformation} with beneficiary \(u\)
+and co-beneficiary \(v\) deletes all edges \(vw\) with
+\(w\in N(v)\setminus(N(u)\cup\{u\})\) and adds the edges \(uw\) for the
+same \(w\); it preserves the number of edges. Kelmans (1981) proved that
+it never increases all-terminal reliability (see Csikvári, 2011, Theorem
+2.2, with \(k=1\) there), and Csikvári (2011, Theorem 2.6) proved that
+every graph can be carried by a sequence of Kelmans transformations to a
+threshold graph with the same number of components. Recall that a graph
+is \emph{threshold} if any two vertices \(u,v\) have comparable sets
+\(N(u)\setminus\{v\}\) and \(N(v)\setminus\{u\}\); equivalently it is
+obtained from a single vertex by repeatedly adding an isolated or a
+dominating vertex. The complement of a threshold graph is threshold, and
+a threshold graph without isolated vertices has a vertex adjacent to all
+others.
+
+\begin{theorem}\label{thm:reduction}
+Let $\varepsilon\in\{0,1\}$, $n\ge 8+3\varepsilon$, $m=\binom{n-1}2-\varepsilon$ and $N=n-1$. If $(\star)_{N,\varepsilon}$ holds, then every connected graph $H$ with $n$ vertices and $m$ edges satisfies
+$$\mathrm{Rel}(H;p)\;\ge\;\mathrm{Rel}(B_{n,m};p)=p\,\mathrm{Rel}(K_{n-1}-K_{1,1+\varepsilon};p)\qquad(0\le p\le1),$$
+i.e. $B_{n,m}$ is uniformly least reliable, and consequently $G_{n,m}$ is uniformly most split reliable in $\mathcal T_{n,m}$.
+\end{theorem}
+
+\begin{proof}
+By the results of Kelmans and Csikvári just quoted there is a connected threshold graph $H_{\mathrm{tr}}$ with $n$ vertices and $m$ edges and $\mathrm{Rel}(H_{\mathrm{tr}})\le\mathrm{Rel}(H)$ on $[0,1]$, so we may assume that $H$ itself is threshold. Let $F$ be the complement of $H$; it is a threshold graph with $n-1+\varepsilon$ edges. Since $H$ is connected and threshold, its last vertex in a threshold construction sequence is dominating, so $F$ has an isolated vertex. Let $t$ be the number of non-isolated vertices of $F$ and $F_0$ the subgraph they induce; $F_0$ is threshold without isolated vertices, so it has a vertex $w$ adjacent in $F$ to the other $t-1$ vertices of $F_0$. In $H$ the neighbours of $w$ are exactly the $n-t$ vertices outside $F_0$, and each of them is isolated in $F$, hence dominating in $H$. Because $\binom t2\ge e(F_0)=n-1+\varepsilon$ and $n\ge8+3\varepsilon$, we have $t\ge5+\varepsilon$ (for $\varepsilon=0$, $t\le4$ would give $n-1\le6$; for $\varepsilon=1$, $t\le5$ would give $n\le10$). Also $t\le n-1$.
+
+If $t=n-1$ then $w$ is pendant, $\mathrm{Rel}(H)=p\,\mathrm{Rel}(H-w)$, and $H-w$ is a connected graph with $n-1$ vertices and $\binom{n-1}2-1-\varepsilon\ge\binom{n-2}2+1$ edges, so by the Petingi–Saccoman–Schoppmann theorem $\mathrm{Rel}(H-w)\ge\mathrm{Rel}(K_{n-1}-K_{1,1+\varepsilon})$ and we are done.
+
+Otherwise put $d=n-t-1$, so that $w$ has degree $d+1\ge2$ and $1\le d\le n-6-\varepsilon=N-5-\varepsilon$. The graph $H$ is connected whenever $H-w$ is connected and at least one of the $d+1$ edges at $w$ is present, and these two events concern disjoint edge sets; hence
+$$\mathrm{Rel}(H)\ \ge\ (1-q^{d+1})\,\mathrm{Rel}(H-w).$$
+The graph $H-w$ is connected (any neighbour of $w$ dominates it), has $N$ vertices, and has $(n-1+\varepsilon)-(t-1)=d+1+\varepsilon$ missing edges, i.e. $\binom N2-(d+1+\varepsilon)\ge\binom{N-1}2+1$ edges because $d\le N-3-\varepsilon$. By the Petingi–Saccoman–Schoppmann theorem,
+$$\mathrm{Rel}(H-w)\ \ge\ \mathrm{Rel}\bigl(K_N-K_{1,d+1+\varepsilon}\bigr)=f_N(N-2-\varepsilon-d)=f_N(h-d).$$
+Combining the two displays with $(\star)_{N,\varepsilon}$ gives $\mathrm{Rel}(H)\ge(1-q^{d+1})f_N(h-d)\ge p\,f_N(h)=p\,\mathrm{Rel}(K_{n-1}-K_{1,1+\varepsilon})$. The last assertion is Theorem \ref{thm:Bprime}.
+\end{proof}
+
+The next proposition separates finite certification from an analytic
+endpoint comparison. The first excluded value has five small-order
+exceptions; it does not fail uniformly over all orders.
+
+\begin{proposition}\label{prop:star}
+Let $\varepsilon\in\{0,1\}$, $N\ge7$ and $h=N-2-\varepsilon$.
+\begin{itemize}
+\item[(a)] For $7\le N\le 50$, the coefficient-wise inequality (4.4) holds for every $1\le d\le N-5-\varepsilon$ and every $j$; in particular $(\star)_{N,\varepsilon}$ holds for $7\le N\le50$.
+\item[(b)] For every $N\ge7$ and $1\le d\le N-5-\varepsilon$, (4.3) holds to leading order as $p\to0$: $(d+1)\,\tau(C_N(h-d))\ge\tau(C_N(h))$.
+\item[(c)] At the first excluded value $d=N-4-\varepsilon=h-2$, (4.4) holds in the five cases $(N,\varepsilon)=(7,0),(7,1),(8,1),(9,1),(10,1)$. It fails in the other cases with $7\le N\le50$. For every $N\ge11$, the analytic obstruction is already in the leading coefficient: $(d+1)\tau(C_N(h-d))<\tau(C_N(h))$. Thus the proposed range cannot be enlarged uniformly in order.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+(a) is a finite computation in exact integer arithmetic, described in Section 5.
+
+(b) By Lemma \ref{lem:trees}, $\tau(C_N(s))=\tau(K_N-K_{1,N-1-s})=s\,(N-1)^{N-2-s}N^{s-1}$, so
+$$\frac{(d+1)\,\tau(C_N(h-d))}{\tau(C_N(h))}=\frac{(d+1)(h-d)}{h}\Bigl(1-\frac1N\Bigr)^{d}.$$
+Put $s=h-d\ge3$. The first factor $(d+1)s/(s+d)$ is increasing in $s$, so it is at least $3(d+1)/(d+3)$, and $(1-1/N)^d\ge e^{-d/(N-1)}\ge e^{-d/(d+4)}$ because $N-1\ge h+1\ge d+4$. The function $\varphi(d)=\log\frac{3(d+1)}{d+3}-\frac{d}{d+4}$ satisfies $\varphi(1)=\log1.5-0.2>0$, $\varphi(d)\to\log3-1>0$ as $d\to\infty$, and $\varphi'(d)=\frac{2}{(d+1)(d+3)}-\frac{4}{(d+4)^2}$ changes sign only once (from positive to negative), so $\varphi>0$ for all $d\ge1$; hence the ratio is at least $1$.
+
+(c) For $d=h-2$ the ratio in (b) equals $r(N,\varepsilon)=\frac{2(h-1)}{h}(1-\frac1N)^{h-2}$. Since $h\ge N-3$, $r<2(1-\frac1N)^{N-5}\le 2e^{-(N-5)/N}$, which is below $1$ for $N\ge17$; for $11\le N\le16$ direct evaluation gives $r\le0.988$ (the values at $N=11$ are $0.912$ for $\varepsilon=0$ and $0.988$ for $\varepsilon=1$). The excluded value is tested separately from (a). Exact coefficient checks give the five stated exceptions and failures in the remaining cases; these checks are retained separately in the evidence package. A negative leading coefficient proves failure near $p=0$, whereas an arbitrary negative coefficient alone would not suffice to refute the probability inequality.
+\end{proof}
+
+\begin{corollary}\label{cor:n41}
+For $7\le n\le 51$ and $m\in\{\binom{n-1}2,\binom{n-1}2-1\}$ the balloon graph $B_{n,m}$ is uniformly least reliable among connected graphs with $n$ vertices and $m$ edges, and $G_{n,m}$ is uniformly most split reliable in $\mathcal T_{n,m}$. For every $n\ge 11$ the same conclusions follow from $(\star)_{n-1,\varepsilon}$ alone.
+\end{corollary}
+
+\begin{proof}
+The required base cases $7\le n\le10$ are covered by exact all-terminal coefficient comparisons in Section 5. For $8\le n\le51$ with $\varepsilon=0$ and $11\le n\le51$ with $\varepsilon=1$ it is Theorem \ref{thm:reduction} together with Proposition \ref{prop:star}(a), applied with $N=n-1\le50$.
+\end{proof}
+
+Theorem \ref{thm:reduction} replaces a statement about all connected
+graphs with \(n\) vertices and \(m\) edges by a statement about one
+explicit pair of graphs. The two sides of (4.3) have equal endpoint
+values, not equal first-order expansions. As \(q\to0\), their difference
+is \(q-q^{d+1}-q^{h-d}+q^h+O(q^{N-2})>0\), and as \(p\to0\) it is
+governed by the spanning-tree ratio of Proposition \ref{prop:star}(b),
+which exceeds \(1\) by a bounded factor. We have not found a proof of
+(4.3) for all \(N\); an equivalent probabilistic form is that the
+probability that the \(d\) extra cone edges are needed to connect
+\(C_N(h)\) is at most \((q+q^2+\dots+q^d)\,f_N(h-d)\).
+
+\emph{Proof of Theorem \ref{thm:main}.} Part (i) is Proposition 2.1 of
+Brown and McMullin (2023). Part (ii) is Theorem \ref{thm:A}. Part (iii)
+is Theorem \ref{thm:B} and part (iv) is Theorem \ref{thm:Bprime}; its
+proviso holds for \(7\le n\le 51\) by Corollary \ref{cor:n41}, which
+gives the final sentence for these \(n\). \(\square\)
+
+\subsection{Analytic intervals valid at every
+order}\label{analytic-intervals-valid-at-every-order}
+
+The finite coefficient certificates and the following analytic
+comparison provide different kinds of coverage. The certificates cover
+the whole probability interval at bounded orders. The analytic
+comparison applies at every order, but leaves an intermediate
+probability interval unresolved.
+
+\begin{theorem}[Cone comparison on explicit probability intervals]\label{thm:coneintervals}
+Let $N\ge7$, $3\le s<h\le N-1$, and $d=h-s$. Then
+$$
+(1-q^{d+1})f_N(s;p)\ge p f_N(h;p),\qquad q=1-p,
+$$
+for every $p\in[1/2,1]$, with strict inequality for $1/2\le p<1$.
+
+In the particular range $h=N-2-\varepsilon$, $\varepsilon\in\{0,1\}$ and $1\le d\le N-5-\varepsilon$, put
+$$
+R=\frac{(d+1)(h-d)}{h}\left(\frac{N-1}{N}\right)^d,
+\qquad L=\binom{N-1}{2}-1-\varepsilon.
+$$
+Then $R>1$, and the same comparison holds on
+$$0\le p\le1-R^{-1/L}.$$
+\end{theorem}
+
+\begin{proof}
+Write $M=N-1$, $r_M(p)=\operatorname{Rel}(K_M;p)$ and $A=1+q+\cdots+q^d$. A sufficient event for the smaller cone to be connected is that the surviving clique is connected and at least one of its $s$ cone edges survives. These events use disjoint edge sets. Conversely, connectivity of the larger cone requires at least one of its $h$ cone edges to survive. Hence
+$$f_N(s;p)\ge(1-q^s)r_M(p),\qquad f_N(h;p)\le1-q^h.$$
+For $0<q<1$ it therefore suffices to prove
+$$
+1-r_M(p)\le D:=1-\frac{1-q^{s+d}}{A(1-q^s)}
+=q\frac{1-q^d}{1-q^{d+1}}\frac{1-q^{s-1}}{1-q^s}.
+$$
+For fixed $q$, the sequence $(1-q^a)/(1-q^{a+1})$ increases with the positive integer $a$: the difference of adjacent cross products is $q^a(1-q)^2>0$. Since $d\ge1$ and $s-1\ge2$,
+$$D\ge q\frac{1-q}{1-q^2}\frac{1-q^2}{1-q^3}
+=\frac{q}{1+q+q^2}.$$
+
+Every disconnected clique state has a nontrivial cut all of whose edges have failed. Counting each unordered cut once, for $M=6$ the union bound gives
+$$1-r_6(p)\le6q^5+15q^8+10q^9.$$
+If $0<q\le1/2$, division by $q$ bounds this by
+$$\frac6{16}+\frac{15}{128}+\frac{10}{256}
+=\frac{17}{32}<\frac47\le\frac1{1+q+q^2}.$$
+For $M\ge7$, singleton cuts contribute $Mq^{M-1}$; each remaining cut has at least $2(M-2)$ crossing edges, and there are fewer than $2^{M-1}$ such cuts. Thus
+$$
+\frac{1-r_M(p)}q
+\le Mq^{M-2}+2^{M-1}q^{2M-5}
+\le\frac{M}{2^{M-2}}+2^{4-M}
+\le\frac7{32}+\frac18=\frac{11}{32}<\frac47.
+$$
+Both terms in the penultimate expression decrease with $M\ge7$. This proves the strict sufficient inequality for $0<q\le1/2$. At $p=1$ both sides of the cone comparison equal $1$.
+
+For the lower interval, the smaller cone has $E_s=\binom M2+s$ edges. States consisting of exactly a spanning tree give the lower bound
+$$f_N(s;p)\ge\tau(C_N(s))p^{N-1}q^{E_s-N+1}.$$
+The union bound over spanning trees gives
+$$f_N(h;p)\le\tau(C_N(h))p^{N-1}.$$
+Together with $1-q^{d+1}\ge(d+1)pq^d$, these imply the desired comparison whenever $Rq^L\ge1$, since
+$$
+R=\frac{(d+1)\tau(C_N(s))}{\tau(C_N(h))},
+\qquad d+E_s-N+1=\binom M2-1-\varepsilon=L.
+$$
+The cone tree formula yields the stated expression for $R$.
+
+To verify that the lower interval has positive length, use $s\ge3$ and $N-1\ge d+4$ to obtain
+$$
+\log R\ge\log\frac{3(d+1)}{d+3}-\frac d{d+4}=:\varphi(d),
+$$
+where $\log(1-1/N)\ge-1/(N-1)$ was used. The derivative
+$$\varphi'(d)=\frac2{(d+1)(d+3)}-\frac4{(d+4)^2}$$
+has the sign of $10-d^2$, so $\varphi$ has only one maximum on $[1,\infty)$. Its value at $1$ is $\log(3/2)-1/5>0$ and its limit at infinity is $\log3-1>0$. Therefore $R>1$. The condition $Rq^L\ge1$ is exactly $p\le1-R^{-1/L}$; at $p=0$ the comparison holds directly.
+\end{proof}
+
+In particular, the threshold-graph reduction applies pointwise: for
+\(\varepsilon\in\{0,1\}\), \(n\ge8+3\varepsilon\) and
+\(m=\binom{n-1}{2}-\varepsilon\), every connected graph \(H\) with \(n\)
+vertices and \(m\) edges satisfies
+\[\operatorname{Rel}(H;p)\ge\operatorname{Rel}(B_{n,m};p)\qquad(1/2\le p\le1).\]
+The same implication holds on the common lower interval obtained by
+taking the minimum of \(1-R^{-1/L}\) over the finitely many required
+values of \(d\) for \(N=n-1\). These are pointwise interval conclusions,
+not uniform reliability on \([0,1]\). The intermediate interval remains
+unresolved at unrestricted orders; the full-interval finite theorem
+through \(n=51\) remains a separate result.
+
+\section{Exact computations and their
+scope}\label{exact-computations-and-their-scope}
+
+The universal nonexistence and dense-existence arguments above are
+written proofs. The finite boundary conclusion additionally depends on
+exact cone coefficients and a small number of all-terminal base cases.
+The other enumerations are corroboration, not substitutes for those
+arguments. None of these programs is a proof-assistant formalisation of
+the mathematics.
+
+\subsection{Certificate semantics}\label{certificate-semantics}
+
+For each graph, \(c_i\) counts connected spanning edge sets of size
+\(i\), and \(N_i\) counts the corresponding split states. The
+connected-subgraph generating polynomial on an induced vertex set \(S\)
+is obtained by subtracting states whose component containing the least
+vertex is a proper subset \(T\): \[c_S(x)=(1+x)^{e(S)}-
+\sum_{\substack{T\subsetneq S\\\min S\in T}}
+c_T(x)(1+x)^{e(S\setminus T)}.\] Edges between \(T\) and its complement
+are absent. Split coefficients then come from
+\[\sum_{\substack{A\subseteq V\\s\in A,\ t\notin A}}
+c_A(x)c_{V\setminus A}(x).\] Counting every terminal pair does not
+require treating isomorphic copies as different scientific objects. The
+graph6 corpora contain unlabelled graph representatives; all their
+unordered terminal pairs are checked when a full split-vector run is
+specified.
+
+A coefficientwise inequality at a common total edge count implies a
+probability inequality, because \(p^i(1-p)^{m-i}\ge0\). It is
+sufficient, not necessary. Nonexistence is certified differently: the
+graphs maximising the lowest split coefficient and those maximising the
+reversed coefficient vector lexicographically have disjoint sets of
+coefficient vectors. The endpoint lemma then rules out a uniform
+optimiser. Failure of a coefficientwise comparison alone is not such a
+nonexistence certificate.
+
+\subsection{Cone coefficients}\label{cone-coefficients}
+
+Write \(M=N-1\). If \(a\) of the \(s\) cone edges survive, the surviving
+clique must have every component meeting their \(a\) endpoints. Let
+\(\gamma_M(a;x)\) count those clique edge sets. Removing the union of
+components avoiding that fixed root set gives
+\[\gamma_M(a;x)=(1+x)^{\binom M2}
+-\sum_{u=1}^{M-a}\binom{M-a}{u}(1+x)^{\binom u2}\gamma_{M-u}(a;x),\] and
+hence \[\sum_j c_j(C_N(s))x^j=\sum_{a=1}^s\binom sa x^a\gamma_M(a;x).\]
+The fast implementation uses packed integer polynomials with an explicit
+digit bound; an alternative implementation groups the generic subset
+recursion by symmetry orbits. Ordinary-list arithmetic and direct
+edge-subset checks provide smaller, transparent comparisons. Packing
+arithmetic is an implementation choice, not a strengthening of the
+claim.
+
+\subsection{Recorded coverage}\label{recorded-coverage}
+
+The incoming reviewer evidence records the following executed checks.
+These are supplied review provenance, not executions newly attributed to
+this revision. The release's replay receipt separately identifies
+executions performed on the revised package and their exact input
+hashes.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Check
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Exact scope
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Required cone inequalities & \(7\le N\le50\), both \(\varepsilon\),
+every required \(d\): 2,024 triples and 1,354,694 coefficient
+comparisons & Finite boundary theorem \\
+Boundary all-terminal minima & Both boundary edge counts at
+\(n=7,8,9,10\); 5,422 graphs & Base cases for the reduction \\
+Rebuilt C split vectors & All connected graphs at \(n=5,6,7,8\), and the
+supplied dense \(n=10\) corpus; 16,678 graphs, 536,954 terminal pairs &
+Implementation replay \\
+Direct edge-subset comparison & All 133 connected graphs at \(n=5,6\);
+1,890 terminal pairs & Independent algorithm check within supplied
+review \\
+Root-set and generic cone checks & 21 root-set checks through clique
+order 6; 39 cone checks at orders 5--10 & Formula and implementation
+check \\
+Additional dense \(n=9\) replay & 1,370 graphs, 49,320 terminal pairs &
+Supplementary corroboration \\
+Corpus regeneration & Nine supplied graph6 corpora & Input enumeration
+check \\
+First excluded cone value & 88 cases: 83 leading-coefficient failures
+and five full coefficientwise passes & Correction of false sharpness
+assertion \\
+\end{longtable}
+}
+
+The original identity/identified-graph logs cover \textbf{3,640 terminal
+pairs from 140 graph representatives}: 40 dense graphs of order 7 and
+100 of order 8. They do not cover every two-terminal graph through order
+8. For adjacent terminals the loop-padded coefficient identity from the
+preliminaries is required.
+
+The original fast cone logs reach \(N=50\). Complete two-\(\varepsilon\)
+coverage of the slower implementation ends at \(N=30\), with only
+\(\varepsilon=0\) recorded at \(N=31\). Its generic validation covers
+\(N=5,6,7\); the faster implementation's validation covers
+\(N=5,\ldots,10\). We do not describe these as two complete independent
+runs through \(N=50\).
+
+Original summaries also report full split enumeration at \(n=9\) and
+dense \(n=11,12\). Their large raw split files were not included in the
+source handoff, and the supplied review did not replay all that
+arithmetic. They are retained as historical supplementary records, not
+additional dependencies of the finite boundary theorem. Winner summaries
+are not certificates of all terminal-pair isomorphism classes. Likewise,
+a pendant-plus-core description applies only where the edge count
+permits a pendant vertex, not to the entire dense range.
+
+\subsection{A small certificate readers can
+inspect}\label{a-small-certificate-readers-can-inspect}
+
+At \(N=7\), \(\varepsilon=1\), the first excluded value is \(d=2\). This
+is one of the five exceptions to the original sharpness assertion. With
+\(q=1-p\), \[\Delta(p)=(1-q^3)\operatorname{Rel}(C_7(2);p)
+-p\operatorname{Rel}(C_7(4);p)
+=\sum_{j=0}^{20}D_jp^jq^{20-j}.\] Only \(D_7,\ldots,D_{19}\) are
+nonzero, and they are
+\[840,\ 7640,\ 19904,\ 30348,\ 32615,\ 26418,\ 16510,\]
+\[7976,\ 2938,\ 800,\ 152,\ 18,\ 1.\] They are all positive, so
+\(\Delta(p)>0\) throughout \(0<p<1\); at \(p=1/2\) it is \(9135/65536\).
+A standalone enumerator checks all \(2^{17}+2^{19}=655360\) edge sets
+without importing the submitted graph routines. This example also
+explains why excluded parameter values must be tested explicitly rather
+than inferred from a loop over the required positive range.
+
+\subsection{Reproducibility boundary}\label{reproducibility-boundary}
+
+The package's claim-to-file map gives the exact scripts, corpus files
+and logs. Required checks return nonzero on a failed comparison, and
+negative controls exercise the loop convention and incorrect boundary
+assertions. Historical logs are not rewritten. Rebuild the C
+implementation from source; bundled platform-specific executables are
+not part of the public evidence contract. The integer bounds apply only
+in the documented supported range. Reproducing outputs checks the
+implemented finite statement, not the imported literature or every step
+of the universal prose proof.
+
+\section{Discussion}\label{discussion}
+
+The threshold \(m=\binom n2-n\) has a transparent meaning in the light
+of Lemma \ref{lem:identity}: a split event is a connectivity event on
+the identified graph \(H/st\) minus a connectivity event on \(H\)
+itself, and the balloon candidate is simultaneously the graph whose
+identification is most reliable (Lemma \ref{lem:identified}, true for
+all \(k\le n\)) and the graph that is itself least reliable
+(Petingi--Saccoman--Schoppmann, known for \(k\le n-2\)). For
+\(k\ge n+1\) the first property fails to compensate: the
+lexicographically forced candidate is beaten at the \(2\)-forest
+coefficient by graphs whose missing edges are spread rather than
+concentrated, as Section 3 shows with explicit spanning-tree counts.
+
+The two edge counts left conditional, \(m=\binom{n-1}2\) and
+\(m=\binom{n-1}2-1\), are exactly the first two below the range in which
+the all-terminal ``uniformly least reliable'' problem is solved. The
+statement that would complete the characterisation is the following
+instance of the conjecture of Boesch, Satyanarayana and Suffel.
+
+\begin{conjecture}\label{conj:boundary}
+Let $n\ge 7$ and let $H$ be a connected graph with $n$ vertices and $m$ edges.
+\begin{itemize}
+\item[(a)] If $m=\binom{n-1}2$, then $\mathrm{Rel}(H;p)\ge p\,\mathrm{Rel}(K_{n-1}-e;p)$ for all $p\in[0,1]$, where $K_{n-1}-e$ is the complete graph with one edge removed.
+\item[(b)] If $m=\binom{n-1}2-1$, then $\mathrm{Rel}(H;p)\ge p\,\mathrm{Rel}(K_{n-1}-P_3;p)$ for all $p\in[0,1]$, where $K_{n-1}-P_3$ is the complete graph with two adjacent edges removed.
+\end{itemize}
+\end{conjecture}
+
+The right-hand sides are the reliabilities of the balloon graphs
+\(B_{n,m}\) at the two edge counts (a pendant vertex attached anywhere
+to the core contributes the factor \(p\), so the choice of attachment
+vertex is immaterial). By Theorem \ref{thm:Bprime}, Conjecture
+\ref{conj:boundary} implies that a UMSR graph exists in
+\(\mathcal T_{n,m}\) if and only if \(m=n-1\) or \(m\ge\binom n2-n\),
+for every \(n\ge 7\). Theorem \ref{thm:reduction} shows that Conjecture
+\ref{conj:boundary} for \(n\ge11\) follows from the inequality
+\((\star)_{n-1,\varepsilon}\) between the two cone graphs
+\(C_{n-1}(n-3-\varepsilon)\) and \(C_{n-1}(n-3-\varepsilon-d)\), and
+Corollary \ref{cor:n41} establishes it for \(7\le n\le 51\). A
+sufficient remaining research target is therefore a family indexed by
+\(N,\varepsilon,d\), uniformly quantified over \(p\):
+
+\begin{conjecture}\label{conj:star}
+$(\star)_{N,\varepsilon}$ holds for every $N\ge 7$ and $\varepsilon\in\{0,1\}$; that is, for $h=N-2-\varepsilon$ and $1\le d\le N-5-\varepsilon$,
+$$(1-q^{d+1})\,\mathrm{Rel}\bigl(K_N-K_{1,1+\varepsilon+d};p\bigr)\ \ge\ p\,\mathrm{Rel}\bigl(K_N-K_{1,1+\varepsilon};p\bigr)\qquad(0\le p\le 1).$$
+\end{conjecture}
+
+Conjecture \ref{conj:star} implies Conjecture \ref{conj:boundary} and
+hence completes the characterisation for all \(n\ge7\). It holds
+coefficient-wise for \(N\le50\) (Proposition \ref{prop:star}). Theorem
+\ref{thm:coneintervals} proves it at every order for \(p\ge1/2\) and on
+an explicit interval near zero; only the intervening interval remains to
+be proved at unrestricted orders. The first excluded parameter value has
+a leading-coefficient obstruction for \(N\ge11\), so a proof cannot
+simply extend the required range without qualification.
+
+The theorem classifies existence, not all terminal-preserving
+isomorphism classes of optimisers. Romero's theorem identifies the
+optimisers, whenever they exist, by split-equivalence to the balloon
+polynomial. The supplied winner summaries retain only representative
+terminal pairs and do not certify an enumeration of every
+terminal-placement class. We make no new terminal-isomorphism uniqueness
+claim on that evidence.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\textbf{Split reliability and uniformly optimal reliability (primary
+sources)}
+
+Brown, J. I., \& McMullin, I. (2023). On the split reliability of
+graphs. \emph{Networks, 82}(2), 177--185.
+https://doi.org/10.1002/net.22166 (preprint:
+https://arxiv.org/abs/2306.03884)
+
+Romero, P. (2025). Characterization of locally most split reliable
+graphs. \emph{Theoretical Computer Science, 1047}, 115327.
+https://doi.org/10.1016/j.tcs.2025.115327 (preprint:
+https://arxiv.org/abs/2503.15453)
+
+Romero, P. (2022). Uniformly optimally reliable graphs: A survey.
+\emph{Networks, 80}(4), 466--481. https://doi.org/10.1002/net.22085
+
+Petingi, L., Saccoman, J. T., \& Schoppmann, L. (1996). Uniformly least
+reliable graphs. \emph{Networks, 27}(2), 125--131. (Abstract and
+bibliographic record: https://iaorifors.com/paper/34598)
+
+Romero, P. (2022). Universal reliability bounds for sparse networks.
+\emph{IEEE Transactions on Reliability, 71}(1), 359--369. First
+published online in 2021. https://doi.org/10.1109/TR.2021.3061075 (open
+access copy:
+https://redi.anii.org.uy/jspui/bitstream/20.500.12381/648/1/10\%20(1).pdf)
+
+Brown, J. I., \& Mol, L. (2017). On the roots of all-terminal
+reliability polynomials. \emph{Discrete Mathematics, 340}(6),
+1287--1299. https://arxiv.org/abs/1703.10566
+
+\textbf{Reliability-monotone graph transformations}
+
+Brown, J. I., Colbourn, C. J., \& Devitt, J. S. (1993). Network
+transformations and bounding network reliability. \emph{Networks,
+23}(1), 1--17. https://doi.org/10.1002/net.3230230103
+
+Satyanarayana, A., Schoppmann, L., \& Suffel, C. L. (1992). A
+reliability-improving graph transformation with applications to network
+reliability. \emph{Networks, 22}(2), 209--216.
+https://doi.org/10.1002/net.3230220206
+
+Kelmans, A. K. (1981). On graphs with randomly deleted edges. \emph{Acta
+Mathematica Academiae Scientiarum Hungaricae, 37}(1--3), 77--88.
+https://doi.org/10.1007/BF01904874 (statement used: Csikvári, 2011,
+Theorem 2.2)
+
+Csikvári, P. (2011). Applications of the Kelmans transformation:
+Extremality of the threshold graphs. \emph{Electronic Journal of
+Combinatorics, 18}(1), P182. https://doi.org/10.37236/669
+
+\textbf{Software}
+
+McKay, B. D., \& Piperno, A. (2014). Practical graph isomorphism, II.
+\emph{Journal of Symbolic Computation, 60}, 94--112.
+https://doi.org/10.1016/j.jsc.2013.09.003 (nauty, including
+\texttt{geng}: https://pallini.di.uniroma1.it/)
+
+\end{document}

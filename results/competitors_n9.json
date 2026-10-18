@@ -1,0 +1,101 @@
+{
+ "n": 9,
+ "rows": [
+  {
+   "k": 10,
+   "m": 26,
+   "regime": "A1",
+   "N_{n-2}(G)": 143360,
+   "N_{n-2}(H')": 147456,
+   "formula_G": 143360,
+   "formula_H'": 147456,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 147456
+  },
+  {
+   "k": 11,
+   "m": 25,
+   "regime": "A1",
+   "N_{n-2}(G)": 100352,
+   "N_{n-2}(H')": 107520,
+   "formula_G": 100352,
+   "formula_H'": 107520,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 110592
+  },
+  {
+   "k": 12,
+   "m": 24,
+   "regime": "A1",
+   "N_{n-2}(G)": 65856,
+   "N_{n-2}(H')": 75264,
+   "formula_G": 65856,
+   "formula_H'": 75264,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 82944
+  },
+  {
+   "k": 13,
+   "m": 23,
+   "regime": "A2",
+   "N_{n-2}(G)": 38416,
+   "N_{n-2}(H')": 47824,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 58800
+  },
+  {
+   "k": 14,
+   "m": 22,
+   "regime": "A2",
+   "N_{n-2}(G)": 28812,
+   "N_{n-2}(H')": 35868,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 42000
+  },
+  {
+   "k": 15,
+   "m": 21,
+   "regime": "A2",
+   "N_{n-2}(G)": 20237,
+   "N_{n-2}(H')": 25298,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 30000
+  },
+  {
+   "k": 16,
+   "m": 20,
+   "regime": "A2",
+   "N_{n-2}(G)": 13524,
+   "N_{n-2}(H')": 17016,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 21025
+  },
+  {
+   "k": 17,
+   "m": 19,
+   "regime": "A2",
+   "N_{n-2}(G)": 8316,
+   "N_{n-2}(H')": 10584,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 13825
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+n = 11
+m=44 k=11 EXISTS  (563695 two-terminal graphs) winners: J~~~~~~Nw?_(0,10), J~~~~~~Ny??(9,10)
+m=45 k=10 EXISTS  (201465 two-terminal graphs) winners: J~~~~~~^w?_(0,10)
+m=46 k= 9 EXISTS  (71775 two-terminal graphs) winners: J~~~~~~~w?_(0,10)
+m=47 k= 8 EXISTS  (25685 two-terminal graphs) winners: J~~~~~~~w@_(0,10)
+m=48 k= 7 EXISTS  (9460 two-terminal graphs) winners: J~~~~~~~wB_(0,10)
+m=49 k= 6 EXISTS  (3685 two-terminal graphs) winners: J~~~~~~~wF_(0,10)
+m=50 k= 5 EXISTS  (1430 two-terminal graphs) winners: J~~~~~~~wN_(0,10)
+m=51 k= 4 EXISTS  (605 two-terminal graphs) winners: J~~~~~~~w^_(0,10)
+m=52 k= 3 EXISTS  (275 two-terminal graphs) winners: J~~~~~~~w~_(0,10)
+m=53 k= 2 EXISTS  (110 two-terminal graphs) winners: J~~~~~~~x~_(0,10)
+m=54 k= 1 EXISTS  (55 two-terminal graphs) winners: J~~~~~~~z~_(0,10)
+m=55 k= 0 EXISTS  (55 two-terminal graphs) winners: J~~~~~~~~~_(0,1)
+SUMMARY n=11: UMSR exists for m in [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+   predicted (m = n-1 or m >= C(n,2)-n): [10, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]

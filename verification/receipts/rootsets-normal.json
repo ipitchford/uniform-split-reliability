@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "optimized": false,
+  "rows": [
+    {
+      "M": 1,
+      "root_sizes": 1,
+      "edge_subsets": 1
+    },
+    {
+      "M": 2,
+      "root_sizes": 2,
+      "edge_subsets": 2
+    },
+    {
+      "M": 3,
+      "root_sizes": 3,
+      "edge_subsets": 8
+    },
+    {
+      "M": 4,
+      "root_sizes": 4,
+      "edge_subsets": 64
+    },
+    {
+      "M": 5,
+      "root_sizes": 5,
+      "edge_subsets": 1024
+    },
+    {
+      "M": 6,
+      "root_sizes": 6,
+      "edge_subsets": 32768
+    }
+  ],
+  "root_pairs": 21,
+  "edge_subsets": 33867,
+  "elapsed_seconds": 0.39285320811904967
+}

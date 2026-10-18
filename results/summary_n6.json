@@ -1,0 +1,682 @@
+{
+ "n": 6,
+ "results": {
+  "5": {
+   "m": 5,
+   "k": 10,
+   "exists": true,
+   "max_vector": [
+    5,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "ECZ?",
+     "s": 2,
+     "t": 3,
+     "deg_s": 1,
+     "deg_t": 1,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       3
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       2,
+       5
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       3,
+       5
+      ],
+      [
+       4,
+       5
+      ]
+     ],
+     "bridges": 5
+    }
+   ]
+  },
+  "6": {
+   "m": 6,
+   "k": 9,
+   "exists": false,
+   "certified_nonexistence": true,
+   "max_vector": [
+    12,
+    3,
+    0
+   ],
+   "top_lex_candidate": {
+    "graph6": "ECZO",
+    "s": 0,
+    "t": 2,
+    "deg_s": 2,
+    "deg_t": 1,
+    "complement_edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ]
+    ],
+    "bridges": 3
+   },
+   "top_lex_vector": [
+    11,
+    3,
+    0
+   ],
+   "max_N_{n-2}": 12,
+   "max_N_{n-2}_attained_by": {
+    "graph6": "E?zO",
+    "s": 2,
+    "t": 3,
+    "deg_s": 1,
+    "deg_t": 1,
+    "complement_edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ]
+    ],
+    "bridges": 2
+   }
+  },
+  "7": {
+   "m": 7,
+   "k": 8,
+   "exists": true,
+   "max_vector": [
+    24,
+    12,
+    2,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "EEiW",
+     "s": 1,
+     "t": 2,
+     "deg_s": 1,
+     "deg_t": 1,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       4
+      ],
+      [
+       1,
+       5
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       2,
+       5
+      ],
+      [
+       3,
+       4
+      ]
+     ],
+     "bridges": 2
+    },
+    {
+     "graph6": "EQj_",
+     "s": 3,
+     "t": 4,
+     "deg_s": 1,
+     "deg_t": 2,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       4
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       3,
+       5
+      ],
+      [
+       4,
+       5
+      ]
+     ],
+     "bridges": 2
+    }
+   ]
+  },
+  "8": {
+   "m": 8,
+   "k": 7,
+   "exists": false,
+   "certified_nonexistence": true,
+   "max_vector": [
+    45,
+    32,
+    12,
+    2,
+    0
+   ],
+   "top_lex_candidate": {
+    "graph6": "ECuw",
+    "s": 1,
+    "t": 2,
+    "deg_s": 1,
+    "deg_t": 1,
+    "complement_edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ]
+    ],
+    "bridges": 2
+   },
+   "top_lex_vector": [
+    40,
+    32,
+    12,
+    2,
+    0
+   ],
+   "max_N_{n-2}": 45,
+   "max_N_{n-2}_attained_by": {
+    "graph6": "EEjW",
+    "s": 1,
+    "t": 2,
+    "deg_s": 2,
+    "deg_t": 1,
+    "complement_edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "bridges": 1
+   }
+  },
+  "9": {
+   "m": 9,
+   "k": 6,
+   "exists": true,
+   "max_vector": [
+    75,
+    71,
+    34,
+    9,
+    1,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "EEuw",
+     "s": 1,
+     "t": 2,
+     "deg_s": 2,
+     "deg_t": 1,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       5
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       2,
+       4
+      ]
+     ],
+     "bridges": 1
+    },
+    {
+     "graph6": "EQzg",
+     "s": 0,
+     "t": 3,
+     "deg_s": 3,
+     "deg_t": 1,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       3,
+       5
+      ]
+     ],
+     "bridges": 1
+    }
+   ]
+  },
+  "10": {
+   "m": 10,
+   "k": 5,
+   "exists": true,
+   "max_vector": [
+    125,
+    147,
+    94,
+    38,
+    9,
+    1,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "ETno",
+     "s": 1,
+     "t": 4,
+     "deg_s": 1,
+     "deg_t": 3,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       3
+      ],
+      [
+       1,
+       4
+      ],
+      [
+       4,
+       5
+      ]
+     ],
+     "bridges": 1
+    }
+   ]
+  },
+  "11": {
+   "m": 11,
+   "k": 4,
+   "exists": true,
+   "max_vector": [
+    175,
+    258,
+    217,
+    122,
+    45,
+    10,
+    1,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "ETnw",
+     "s": 0,
+     "t": 1,
+     "deg_s": 4,
+     "deg_t": 1,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       3
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "bridges": 1
+    }
+   ]
+  },
+  "12": {
+   "m": 12,
+   "k": 3,
+   "exists": true,
+   "max_vector": [
+    240,
+    322,
+    247,
+    130,
+    46,
+    10,
+    1,
+    0,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "ET~w",
+     "s": 0,
+     "t": 1,
+     "deg_s": 4,
+     "deg_t": 2,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       3
+      ]
+     ],
+     "bridges": 0
+    }
+   ]
+  },
+  "13": {
+   "m": 13,
+   "k": 2,
+   "exists": true,
+   "max_vector": [
+    324,
+    429,
+    317,
+    160,
+    54,
+    11,
+    1,
+    0,
+    0,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "EV~w",
+     "s": 0,
+     "t": 1,
+     "deg_s": 4,
+     "deg_t": 3,
+     "complement_edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "bridges": 0
+    }
+   ]
+  },
+  "14": {
+   "m": 14,
+   "k": 1,
+   "exists": true,
+   "max_vector": [
+    432,
+    600,
+    464,
+    248,
+    90,
+    20,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "E^~w",
+     "s": 0,
+     "t": 1,
+     "deg_s": 4,
+     "deg_t": 4,
+     "complement_edges": [
+      [
+       0,
+       1
+      ]
+     ],
+     "bridges": 0
+    }
+   ]
+  },
+  "15": {
+   "m": 15,
+   "k": 0,
+   "exists": true,
+   "max_vector": [
+    432,
+    600,
+    464,
+    248,
+    90,
+    20,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "umsr_two_terminal_graphs": [
+    {
+     "graph6": "E~~w",
+     "s": 0,
+     "t": 1,
+     "deg_s": 5,
+     "deg_t": 5,
+     "complement_edges": [],
+     "bridges": 0
+    }
+   ]
+  }
+ }
+}

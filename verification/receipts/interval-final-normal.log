@@ -1,0 +1,2 @@
+PASS: 31920 rational factor/margin identities; cut constants; target tree ratios N=7..100.
+These finite checks support algebra only. The universal proof is in paper/split_reliability.md.

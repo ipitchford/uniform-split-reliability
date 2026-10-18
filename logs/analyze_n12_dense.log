@@ -1,0 +1,16 @@
+n = 12
+m=54 k=12 EXISTS  (2589972 two-terminal graphs) winners: K~~~~~~~x~_@(0,11), K~~~~~~~x~g?(10,11)
+m=55 k=11 EXISTS  (842292 two-terminal graphs) winners: K~~~~~~~z~_@(0,11)
+m=56 k=10 EXISTS  (276606 two-terminal graphs) winners: K~~~~~~~~~_@(0,11)
+m=57 k= 9 EXISTS  (92730 two-terminal graphs) winners: K~~~~~~~~~_B(0,11)
+m=58 k= 8 EXISTS  (32010 two-terminal graphs) winners: K~~~~~~~~~_F(0,11)
+m=59 k= 7 EXISTS  (11550 two-terminal graphs) winners: K~~~~~~~~~_N(0,11)
+m=60 k= 6 EXISTS  (4488 two-terminal graphs) winners: K~~~~~~~~~_^(0,11)
+m=61 k= 5 EXISTS  (1716 two-terminal graphs) winners: K~~~~~~~~~_~(0,11)
+m=62 k= 4 EXISTS  (726 two-terminal graphs) winners: K~~~~~~~~~`~(0,11)
+m=63 k= 3 EXISTS  (330 two-terminal graphs) winners: K~~~~~~~~~b~(0,11)
+m=64 k= 2 EXISTS  (132 two-terminal graphs) winners: K~~~~~~~~~f~(0,11)
+m=65 k= 1 EXISTS  (66 two-terminal graphs) winners: K~~~~~~~~~n~(0,11)
+m=66 k= 0 EXISTS  (66 two-terminal graphs) winners: K~~~~~~~~~~~(0,1)
+SUMMARY n=12: UMSR exists for m in [54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]
+   predicted (m = n-1 or m >= C(n,2)-n): [11, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]

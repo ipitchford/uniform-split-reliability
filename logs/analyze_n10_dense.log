@@ -1,0 +1,14 @@
+n = 10
+m=35 k=10 EXISTS  winners: I~~~~{~?G(0,9), I~~~~{~O?(8,9)
+m=36 k= 9 EXISTS  winners: I~~~~|~?G(0,9)
+m=37 k= 8 EXISTS  winners: I~~~~~~?G(0,9)
+m=38 k= 7 EXISTS  winners: I~~~~~~?W(0,9)
+m=39 k= 6 EXISTS  winners: I~~~~~~?w(0,9)
+m=40 k= 5 EXISTS  winners: I~~~~~~@w(0,9)
+m=41 k= 4 EXISTS  winners: I~~~~~~Bw(0,9)
+m=42 k= 3 EXISTS  winners: I~~~~~~Fw(0,9)
+m=43 k= 2 EXISTS  winners: I~~~~~~Nw(0,9)
+m=44 k= 1 EXISTS  winners: I~~~~~~^w(0,9)
+m=45 k= 0 EXISTS  winners: I~~~~~~~w(0,1)
+SUMMARY n=10: UMSR exists for m in [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+   predicted (m = n-1 or m >= C(n,2)-n): [9, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]

@@ -1,0 +1,6 @@
+{'k': 8, 'm': 13, 'regime': 'A1', 'N_{n-2}(G)': 540, "N_{n-2}(H')": 576, 'formula_G': 540, "formula_H'": 576, "H'_beats_G": True, 'G_is_toplex_max': True, 'max_N_{n-2}_exhaustive': 576}
+{'k': 9, 'm': 12, 'regime': 'A2', 'N_{n-2}(G)': 300, "N_{n-2}(H')": 336, 'formula_G': None, "formula_H'": None, "H'_beats_G": True, 'G_is_toplex_max': True, 'max_N_{n-2}_exhaustive': 384}
+{'k': 10, 'm': 11, 'regime': 'A2', 'N_{n-2}(G)': 200, "N_{n-2}(H')": 224, 'formula_G': None, "formula_H'": None, "H'_beats_G": True, 'G_is_toplex_max': True, 'max_N_{n-2}_exhaustive': 225}
+{'k': 11, 'm': 10, 'regime': 'A2', 'N_{n-2}(G)': 115, "N_{n-2}(H')": 130, 'formula_G': None, "formula_H'": None, "H'_beats_G": True, 'G_is_toplex_max': True, 'max_N_{n-2}_exhaustive': 135}
+all competitors beat the candidate: True
+candidate equals exhaustive top-lex max in all cases: True

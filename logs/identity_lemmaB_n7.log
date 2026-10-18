@@ -1,0 +1,11 @@
+identity checked on 840 two-terminal graphs
+('k=1', "B'", True) 21
+('k=1', 'PSS', True) 21
+('k=2', "B'", True) 42
+('k=2', 'PSS', True) 42
+('k=3', "B'", True) 105
+('k=3', 'PSS', True) 105
+('k=4', "B'", True) 210
+('k=4', 'PSS', True) 210
+('k=5', "B'", True) 441
+('k=5', 'PSS', True) 441

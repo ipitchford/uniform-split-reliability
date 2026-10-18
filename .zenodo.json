@@ -1,0 +1,14 @@
+{
+  "title": "Uniformly most split reliable graphs: a complete answer outside two edge counts",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [{"name":"Anonymous"}],
+  "version": "1.0.0",
+  "publication_date": "2026-10-18",
+  "doi": "10.5281/zenodo.23450265",
+  "access_right": "open",
+  "license": "cc-zero",
+  "description": "Unrefereed AI-assisted mathematical candidate. Existence of uniformly most split reliable graphs is classified outside two edge counts for every n>=7 and completely through n=51 using exact finite certificates. Explicit all-order cone-comparison probability intervals strengthen the boundary reduction, while the intermediate interval and unrestricted-order uniform boundary cases remain unresolved. No external peer review, unaffiliated reproduction, formal verification or exhaustive novelty clearance is established. Original prose/data are CC0-1.0; original code MIT.",
+  "keywords": ["split reliability","network reliability","extremal graphs","exact integer certificates","cone graphs"],
+  "related_identifiers": [{"identifier":"https://github.com/ipitchford/uniform-split-reliability","relation":"isSupplementTo","scheme":"url"}]
+}

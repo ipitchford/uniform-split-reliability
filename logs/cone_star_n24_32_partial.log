@@ -1,0 +1,17 @@
+N=23 (n=24) eps=0: coefficientwise (*) holds for d <= 18 (needed d <= 18): OK
+N=23 (n=24) eps=1: coefficientwise (*) holds for d <= 17 (needed d <= 17): OK
+N=24 (n=25) eps=0: coefficientwise (*) holds for d <= 19 (needed d <= 19): OK
+N=24 (n=25) eps=1: coefficientwise (*) holds for d <= 18 (needed d <= 18): OK
+N=25 (n=26) eps=0: coefficientwise (*) holds for d <= 20 (needed d <= 20): OK
+N=25 (n=26) eps=1: coefficientwise (*) holds for d <= 19 (needed d <= 19): OK
+N=26 (n=27) eps=0: coefficientwise (*) holds for d <= 21 (needed d <= 21): OK
+N=26 (n=27) eps=1: coefficientwise (*) holds for d <= 20 (needed d <= 20): OK
+N=27 (n=28) eps=0: coefficientwise (*) holds for d <= 22 (needed d <= 22): OK
+N=27 (n=28) eps=1: coefficientwise (*) holds for d <= 21 (needed d <= 21): OK
+N=28 (n=29) eps=0: coefficientwise (*) holds for d <= 23 (needed d <= 23): OK
+N=28 (n=29) eps=1: coefficientwise (*) holds for d <= 22 (needed d <= 22): OK
+N=29 (n=30) eps=0: coefficientwise (*) holds for d <= 24 (needed d <= 24): OK
+N=29 (n=30) eps=1: coefficientwise (*) holds for d <= 23 (needed d <= 23): OK
+N=30 (n=31) eps=0: coefficientwise (*) holds for d <= 25 (needed d <= 25): OK
+N=30 (n=31) eps=1: coefficientwise (*) holds for d <= 24 (needed d <= 24): OK
+N=31 (n=32) eps=0: coefficientwise (*) holds for d <= 26 (needed d <= 26): OK

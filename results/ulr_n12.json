@@ -1,0 +1,202 @@
+{
+ "n": 12,
+ "results": {
+  "54": {
+   "m": 54,
+   "k": 12,
+   "graphs": 39242,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": true,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~x~_@",
+     "pendant": true,
+     "balloon_core": true
+    },
+    {
+     "graph6": "K~~~~~~~x~_A",
+     "pendant": true,
+     "balloon_core": true
+    },
+    {
+     "graph6": "K~~~~~~~x~g?",
+     "pendant": true,
+     "balloon_core": true
+    }
+   ]
+  },
+  "55": {
+   "m": 55,
+   "k": 11,
+   "graphs": 12762,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": true,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~z~_@",
+     "pendant": true,
+     "balloon_core": true
+    },
+    {
+     "graph6": "K~~~~~~~z~_A",
+     "pendant": true,
+     "balloon_core": true
+    }
+   ]
+  },
+  "56": {
+   "m": 56,
+   "k": 10,
+   "graphs": 4191,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": true,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~_@",
+     "pendant": true,
+     "balloon_core": true
+    }
+   ]
+  },
+  "57": {
+   "m": 57,
+   "k": 9,
+   "graphs": 1405,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~_B",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "58": {
+   "m": 58,
+   "k": 8,
+   "graphs": 485,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~_F",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "59": {
+   "m": 59,
+   "k": 7,
+   "graphs": 175,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~_N",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "60": {
+   "m": 60,
+   "k": 6,
+   "graphs": 68,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~_^",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "61": {
+   "m": 61,
+   "k": 5,
+   "graphs": 26,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~_~",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "62": {
+   "m": 62,
+   "k": 4,
+   "graphs": 11,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~`~",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "63": {
+   "m": 63,
+   "k": 3,
+   "graphs": 5,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~b~",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "64": {
+   "m": 64,
+   "k": 2,
+   "graphs": 2,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~f~",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "65": {
+   "m": 65,
+   "k": 1,
+   "graphs": 1,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~n~",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  },
+  "66": {
+   "m": 66,
+   "k": 0,
+   "graphs": 1,
+   "min_attained": true,
+   "all_minimisers_are_pendant_on_balloon_core": false,
+   "minimisers": [
+    {
+     "graph6": "K~~~~~~~~~~~",
+     "pendant": false,
+     "balloon_core": false
+    }
+   ]
+  }
+ }
+}

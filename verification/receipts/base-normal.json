@@ -1,0 +1,122 @@
+{
+  "cases": [
+    {
+      "n": 7,
+      "epsilon": 0,
+      "graphs": 40,
+      "minimizers": [
+        "FEv^w",
+        "FTm~o"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 7,
+      "epsilon": 1,
+      "graphs": 64,
+      "minimizers": [
+        "FCv^w",
+        "FEv\\w",
+        "FQznW"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 8,
+      "epsilon": 0,
+      "graphs": 114,
+      "minimizers": [
+        "GEv]~{",
+        "GTm|~w"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 8,
+      "epsilon": 1,
+      "graphs": 220,
+      "minimizers": [
+        "GCv]~{",
+        "GEv]|{",
+        "GQzn^["
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 9,
+      "epsilon": 0,
+      "graphs": 344,
+      "minimizers": [
+        "H~~~z{@",
+        "H~~~z{A"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 9,
+      "epsilon": 1,
+      "graphs": 770,
+      "minimizers": [
+        "H~~~x{@",
+        "H~~~x{A",
+        "H~~~x|?"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 10,
+      "epsilon": 0,
+      "graphs": 1102,
+      "minimizers": [
+        "I~~~~|~?G",
+        "I~~~~|~?O"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    },
+    {
+      "n": 10,
+      "epsilon": 1,
+      "graphs": 2768,
+      "minimizers": [
+        "I~~~~{~?G",
+        "I~~~~{~?O",
+        "I~~~~{~O?"
+      ],
+      "coefficientwise_minimum_attained": true,
+      "all_minimizers_balloon": true
+    }
+  ],
+  "corpora": [
+    {
+      "file": "g7.g6",
+      "sha256": "eca7b9f61b5f54fe98f23f8b4e2baf77be08cd392911e0655fc8b7a72640fae1",
+      "selected_graphs": 104
+    },
+    {
+      "file": "g8.g6",
+      "sha256": "37010dfb9ca35c86bcbfd488c3e4cadcb3e918dc8c6acebd81ea966e79c35a84",
+      "selected_graphs": 334
+    },
+    {
+      "file": "g9dense.g6",
+      "sha256": "10ded9b0d134ed0c2fcbd29016fbc6a0fbff33c1d88ec15bb217a80307ed47f0",
+      "selected_graphs": 1114
+    },
+    {
+      "file": "g10dense.g6",
+      "sha256": "16a607be9dfcfa49803abf8a60fd2e365371107a1f1cc16125b6e4cb9f21a19e",
+      "selected_graphs": 3870
+    }
+  ],
+  "fresh_compilation": true,
+  "status": "passed",
+  "graphs": 5422,
+  "elapsed_seconds": 3.0262517500668764
+}

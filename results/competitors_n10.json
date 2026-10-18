@@ -1,0 +1,105 @@
+{
+ "n": 10,
+ "rows": [
+  {
+   "k": 11,
+   "m": 34,
+   "regime": "A1",
+   "N_{n-2}(G)": 2834352,
+   "N_{n-2}(H')": 2893401,
+   "formula_G": 2834352,
+   "formula_H'": 2893401,
+   "H'_beats_G": true
+  },
+  {
+   "k": 12,
+   "m": 33,
+   "regime": "A1",
+   "N_{n-2}(G)": 2099520,
+   "N_{n-2}(H')": 2204496,
+   "formula_G": 2099520,
+   "formula_H'": 2204496,
+   "H'_beats_G": true
+  },
+  {
+   "k": 13,
+   "m": 32,
+   "regime": "A1",
+   "N_{n-2}(G)": 1492992,
+   "N_{n-2}(H')": 1632960,
+   "formula_G": 1492992,
+   "formula_H'": 1632960,
+   "H'_beats_G": true
+  },
+  {
+   "k": 14,
+   "m": 31,
+   "regime": "A1",
+   "N_{n-2}(G)": 995328,
+   "N_{n-2}(H')": 1161216,
+   "formula_G": 995328,
+   "formula_H'": 1161216,
+   "H'_beats_G": true
+  },
+  {
+   "k": 15,
+   "m": 30,
+   "regime": "A2",
+   "N_{n-2}(G)": 589824,
+   "N_{n-2}(H')": 755712,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true
+  },
+  {
+   "k": 16,
+   "m": 29,
+   "regime": "A2",
+   "N_{n-2}(G)": 458752,
+   "N_{n-2}(H')": 587776,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true
+  },
+  {
+   "k": 17,
+   "m": 28,
+   "regime": "A2",
+   "N_{n-2}(G)": 339968,
+   "N_{n-2}(H')": 436928,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true
+  },
+  {
+   "k": 18,
+   "m": 27,
+   "regime": "A2",
+   "N_{n-2}(G)": 243712,
+   "N_{n-2}(H')": 314608,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true
+  },
+  {
+   "k": 19,
+   "m": 26,
+   "regime": "A2",
+   "N_{n-2}(G)": 166208,
+   "N_{n-2}(H')": 216041,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true
+  },
+  {
+   "k": 20,
+   "m": 25,
+   "regime": "A2",
+   "N_{n-2}(G)": 104272,
+   "N_{n-2}(H')": 137200,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true
+  }
+ ]
+}

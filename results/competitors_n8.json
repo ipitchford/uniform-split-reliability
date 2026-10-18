@@ -1,0 +1,77 @@
+{
+ "n": 8,
+ "rows": [
+  {
+   "k": 9,
+   "m": 19,
+   "regime": "A1",
+   "N_{n-2}(G)": 8232,
+   "N_{n-2}(H')": 8575,
+   "formula_G": 8232,
+   "formula_H'": 8575,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 8575
+  },
+  {
+   "k": 10,
+   "m": 18,
+   "regime": "A1",
+   "N_{n-2}(G)": 5292,
+   "N_{n-2}(H')": 5880,
+   "formula_G": 5292,
+   "formula_H'": 5880,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 6125
+  },
+  {
+   "k": 11,
+   "m": 17,
+   "regime": "A2",
+   "N_{n-2}(G)": 3024,
+   "N_{n-2}(H')": 3612,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 4200
+  },
+  {
+   "k": 12,
+   "m": 16,
+   "regime": "A2",
+   "N_{n-2}(G)": 2160,
+   "N_{n-2}(H')": 2580,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 2800
+  },
+  {
+   "k": 13,
+   "m": 15,
+   "regime": "A2",
+   "N_{n-2}(G)": 1404,
+   "N_{n-2}(H')": 1687,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 1840
+  },
+  {
+   "k": 14,
+   "m": 14,
+   "regime": "A2",
+   "N_{n-2}(G)": 840,
+   "N_{n-2}(H')": 1020,
+   "formula_G": null,
+   "formula_H'": null,
+   "H'_beats_G": true,
+   "G_is_toplex_max": true,
+   "max_N_{n-2}_exhaustive": 1200
+  }
+ ]
+}

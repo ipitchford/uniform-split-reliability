@@ -1,0 +1,14 @@
+n = 6
+m= 5 k=10 EXISTS  winners: ECZ?(2,3)
+m= 6 k= 9 NONE    certified=True  top-lex cand ECZO(0,2) N_{n-2}=11 < max 12 (e.g. E?zO(2,3))
+m= 7 k= 8 EXISTS  winners: EEiW(1,2), EQj_(3,4)
+m= 8 k= 7 NONE    certified=True  top-lex cand ECuw(1,2) N_{n-2}=40 < max 45 (e.g. EEjW(1,2))
+m= 9 k= 6 EXISTS  winners: EEuw(1,2), EQzg(0,3)
+m=10 k= 5 EXISTS  winners: ETno(1,4)
+m=11 k= 4 EXISTS  winners: ETnw(0,1)
+m=12 k= 3 EXISTS  winners: ET~w(0,1)
+m=13 k= 2 EXISTS  winners: EV~w(0,1)
+m=14 k= 1 EXISTS  winners: E^~w(0,1)
+m=15 k= 0 EXISTS  winners: E~~w(0,1)
+SUMMARY n=6: UMSR exists for m in [5, 7, 9, 10, 11, 12, 13, 14, 15]
+   predicted (m = n-1 or m >= C(n,2)-n): [5, 9, 10, 11, 12, 13, 14, 15]

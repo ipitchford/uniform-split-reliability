@@ -1,0 +1,12 @@
+n=11 m=44 k=11: 10249 graphs, min attained=True, minimisers=['J~~~~~~Nw?_', 'J~~~~~~Nw@?', 'J~~~~~~Ny??'], all pendant+balloon core=True
+n=11 m=45 k=10: 3663 graphs, min attained=True, minimisers=['J~~~~~~^w?_', 'J~~~~~~^w@?'], all pendant+balloon core=True
+n=11 m=46 k=9: 1305 graphs, min attained=True, minimisers=['J~~~~~~~w?_'], all pendant+balloon core=True
+n=11 m=47 k=8: 467 graphs, min attained=True, minimisers=['J~~~~~~~w@_'], all pendant+balloon core=False
+n=11 m=48 k=7: 172 graphs, min attained=True, minimisers=['J~~~~~~~wB_'], all pendant+balloon core=False
+n=11 m=49 k=6: 67 graphs, min attained=True, minimisers=['J~~~~~~~wF_'], all pendant+balloon core=False
+n=11 m=50 k=5: 26 graphs, min attained=True, minimisers=['J~~~~~~~wN_'], all pendant+balloon core=False
+n=11 m=51 k=4: 11 graphs, min attained=True, minimisers=['J~~~~~~~w^_'], all pendant+balloon core=False
+n=11 m=52 k=3: 5 graphs, min attained=True, minimisers=['J~~~~~~~w~_'], all pendant+balloon core=False
+n=11 m=53 k=2: 2 graphs, min attained=True, minimisers=['J~~~~~~~x~_'], all pendant+balloon core=False
+n=11 m=54 k=1: 1 graphs, min attained=True, minimisers=['J~~~~~~~z~_'], all pendant+balloon core=False
+n=11 m=55 k=0: 1 graphs, min attained=True, minimisers=['J~~~~~~~~~_'], all pendant+balloon core=False

@@ -1,0 +1,15 @@
+{'k': 13, 'm': 53, 'regime': 'A1', 'N_{n-2}(G)': 1558973680, "N_{n-2}(H')": 1578460851, 'formula_G': 1558973680, "formula_H'": 1578460851, "H'_beats_G": True}
+{'k': 14, 'm': 52, 'regime': 'A1', 'N_{n-2}(G)': 1240092700, "N_{n-2}(H')": 1275523920, 'formula_G': 1240092700, "formula_H'": 1275523920, "H'_beats_G": True}
+{'k': 15, 'm': 51, 'regime': 'A1', 'N_{n-2}(G)': 966306000, "N_{n-2}(H')": 1014621300, 'formula_G': 966306000, "formula_H'": 1014621300, "H'_beats_G": True}
+{'k': 16, 'm': 50, 'regime': 'A1', 'N_{n-2}(G)': 732050000, "N_{n-2}(H')": 790614000, 'formula_G': 732050000, "formula_H'": 790614000, "H'_beats_G": True}
+{'k': 17, 'm': 49, 'regime': 'A1', 'N_{n-2}(G)': 532400000, "N_{n-2}(H')": 598950000, 'formula_G': 532400000, "formula_H'": 598950000, "H'_beats_G": True}
+{'k': 18, 'm': 48, 'regime': 'A1', 'N_{n-2}(G)': 363000000, "N_{n-2}(H')": 435600000, 'formula_G': 363000000, "formula_H'": 435600000, "H'_beats_G": True}
+{'k': 19, 'm': 47, 'regime': 'A2', 'N_{n-2}(G)': 220000000, "N_{n-2}(H')": 292600000, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 20, 'm': 46, 'regime': 'A2', 'N_{n-2}(G)': 180000000, "N_{n-2}(H')": 239400000, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 21, 'm': 45, 'regime': 'A2', 'N_{n-2}(G)': 143000000, "N_{n-2}(H')": 190550000, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 22, 'm': 44, 'regime': 'A2', 'N_{n-2}(G)': 111600000, "N_{n-2}(H')": 149076000, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 23, 'm': 43, 'regime': 'A2', 'N_{n-2}(G)': 85050000, "N_{n-2}(H')": 113991300, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 24, 'm': 42, 'regime': 'A2', 'N_{n-2}(G)': 62694000, "N_{n-2}(H')": 84432780, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 25, 'm': 41, 'regime': 'A2', 'N_{n-2}(G)': 43958700, "N_{n-2}(H')": 59646051, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+{'k': 26, 'm': 40, 'regime': 'A2', 'N_{n-2}(G)': 28343520, "N_{n-2}(H')": 38972340, 'formula_G': None, "formula_H'": None, "H'_beats_G": True}
+all competitors beat the candidate: True

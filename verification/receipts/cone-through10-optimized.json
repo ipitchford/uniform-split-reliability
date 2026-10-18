@@ -1,0 +1,128 @@
+{
+  "algorithm": "cone_star2.py",
+  "sha256": "2008c7d96ff44f5f4dc95f94bd40850d1e16cf2ffbab9a70b09bdc950ed938cd",
+  "python": "3.14.7",
+  "optimized": true,
+  "cases": [
+    {
+      "N": 7,
+      "epsilon": 0,
+      "required_triples": 2,
+      "scalar_inequalities": 44,
+      "required_passed": true,
+      "first_excluded_d": 3,
+      "excluded_holds": true,
+      "first_negative": null
+    },
+    {
+      "N": 7,
+      "epsilon": 1,
+      "required_triples": 1,
+      "scalar_inequalities": 21,
+      "required_passed": true,
+      "first_excluded_d": 2,
+      "excluded_holds": true,
+      "first_negative": null
+    },
+    {
+      "N": 8,
+      "epsilon": 0,
+      "required_triples": 3,
+      "scalar_inequalities": 87,
+      "required_passed": true,
+      "first_excluded_d": 4,
+      "excluded_holds": false,
+      "first_negative": [
+        8,
+        -4528
+      ]
+    },
+    {
+      "N": 8,
+      "epsilon": 1,
+      "required_triples": 2,
+      "scalar_inequalities": 56,
+      "required_passed": true,
+      "first_excluded_d": 3,
+      "excluded_holds": true,
+      "first_negative": null
+    },
+    {
+      "N": 9,
+      "epsilon": 0,
+      "required_triples": 4,
+      "scalar_inequalities": 148,
+      "required_passed": true,
+      "first_excluded_d": 5,
+      "excluded_holds": false,
+      "first_negative": [
+        9,
+        -181143
+      ]
+    },
+    {
+      "N": 9,
+      "epsilon": 1,
+      "required_triples": 3,
+      "scalar_inequalities": 108,
+      "required_passed": true,
+      "first_excluded_d": 4,
+      "excluded_holds": true,
+      "first_negative": null
+    },
+    {
+      "N": 10,
+      "epsilon": 0,
+      "required_triples": 5,
+      "scalar_inequalities": 230,
+      "required_passed": true,
+      "first_excluded_d": 6,
+      "excluded_holds": false,
+      "first_negative": [
+        10,
+        -5598260
+      ]
+    },
+    {
+      "N": 10,
+      "epsilon": 1,
+      "required_triples": 4,
+      "scalar_inequalities": 180,
+      "required_passed": true,
+      "first_excluded_d": 5,
+      "excluded_holds": true,
+      "first_negative": null
+    }
+  ],
+  "status": "passed",
+  "triples": 24,
+  "scalar_inequalities": 874,
+  "elapsed_seconds": 0.001740582985803485,
+  "excluded_exceptions": [
+    [
+      7,
+      0,
+      3
+    ],
+    [
+      7,
+      1,
+      2
+    ],
+    [
+      8,
+      1,
+      3
+    ],
+    [
+      9,
+      1,
+      4
+    ],
+    [
+      10,
+      1,
+      5
+    ]
+  ]
+}

@@ -1,0 +1,20 @@
+name: bounded-research-checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Bounded normal and optimized replay, not the full N=50 gate
+        run: bash verification/reproduce.sh "$RUNNER_TEMP/umsr-ci" --quick
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bounded-check-receipts
+          path: ${{ runner.temp }}/umsr-ci

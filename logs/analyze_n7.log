@@ -1,0 +1,19 @@
+n = 7
+m= 6 k=15 EXISTS  winners: FCQb?(3,4)
+m= 7 k=14 NONE    certified=True  top-lex cand F?otO(1,3) N_{n-2}=14 < max 16 (e.g. F?`v?(3,4))
+m= 8 k=13 NONE    certified=True  top-lex cand FCpeO(2,3) N_{n-2}=32 < max 36 (e.g. FCpf?(3,5))
+m= 9 k=12 NONE    certified=True  top-lex cand FCQug(2,4) N_{n-2}=56 < max 81 (e.g. FCZf?(3,4))
+m=10 k=11 NONE    certified=True  top-lex cand FCZUg(0,2) N_{n-2}=115 < max 135 (e.g. F?zVO(2,3))
+m=11 k=10 NONE    certified=True  top-lex cand FCusw(1,2) N_{n-2}=200 < max 225 (e.g. FCveo(2,3))
+m=12 k= 9 NONE    certified=True  top-lex cand FCf\w(1,2) N_{n-2}=300 < max 384 (e.g. FEzUo(2,5))
+m=13 k= 8 NONE    certified=True  top-lex cand FCv\w(1,2) N_{n-2}=540 < max 576 (e.g. FEr^o(2,5))
+m=14 k= 7 EXISTS  winners: FEv\w(1,2), FQznW(0,3)
+m=15 k= 6 EXISTS  winners: FTm~o(1,5)
+m=16 k= 5 EXISTS  winners: FTm~w(0,1)
+m=17 k= 4 EXISTS  winners: FTn~w(0,1)
+m=18 k= 3 EXISTS  winners: FT~~w(0,1)
+m=19 k= 2 EXISTS  winners: FV~~w(0,1)
+m=20 k= 1 EXISTS  winners: F^~~w(0,1)
+m=21 k= 0 EXISTS  winners: F~~~w(0,1)
+SUMMARY n=7: UMSR exists for m in [6, 14, 15, 16, 17, 18, 19, 20, 21]
+   predicted (m = n-1 or m >= C(n,2)-n): [6, 14, 15, 16, 17, 18, 19, 20, 21]

@@ -1,0 +1,33 @@
+self-check against generic subset recursion passed (N=5,6,7)
+N= 7 (n= 8) eps=0: coefficientwise (*) holds for d <= 2 (needed d <= 2): OK
+N= 7 (n= 8) eps=1: coefficientwise (*) holds for d <= 1 (needed d <= 1): OK
+N= 8 (n= 9) eps=0: coefficientwise (*) holds for d <= 3 (needed d <= 3): OK
+N= 8 (n= 9) eps=1: coefficientwise (*) holds for d <= 2 (needed d <= 2): OK
+N= 9 (n=10) eps=0: coefficientwise (*) holds for d <= 4 (needed d <= 4): OK
+N= 9 (n=10) eps=1: coefficientwise (*) holds for d <= 3 (needed d <= 3): OK
+N=10 (n=11) eps=0: coefficientwise (*) holds for d <= 5 (needed d <= 5): OK
+N=10 (n=11) eps=1: coefficientwise (*) holds for d <= 4 (needed d <= 4): OK
+N=11 (n=12) eps=0: coefficientwise (*) holds for d <= 6 (needed d <= 6): OK
+N=11 (n=12) eps=1: coefficientwise (*) holds for d <= 5 (needed d <= 5): OK
+N=12 (n=13) eps=0: coefficientwise (*) holds for d <= 7 (needed d <= 7): OK
+N=12 (n=13) eps=1: coefficientwise (*) holds for d <= 6 (needed d <= 6): OK
+N=13 (n=14) eps=0: coefficientwise (*) holds for d <= 8 (needed d <= 8): OK
+N=13 (n=14) eps=1: coefficientwise (*) holds for d <= 7 (needed d <= 7): OK
+N=14 (n=15) eps=0: coefficientwise (*) holds for d <= 9 (needed d <= 9): OK
+N=14 (n=15) eps=1: coefficientwise (*) holds for d <= 8 (needed d <= 8): OK
+N=15 (n=16) eps=0: coefficientwise (*) holds for d <= 10 (needed d <= 10): OK
+N=15 (n=16) eps=1: coefficientwise (*) holds for d <= 9 (needed d <= 9): OK
+N=16 (n=17) eps=0: coefficientwise (*) holds for d <= 11 (needed d <= 11): OK
+N=16 (n=17) eps=1: coefficientwise (*) holds for d <= 10 (needed d <= 10): OK
+N=17 (n=18) eps=0: coefficientwise (*) holds for d <= 12 (needed d <= 12): OK
+N=17 (n=18) eps=1: coefficientwise (*) holds for d <= 11 (needed d <= 11): OK
+N=18 (n=19) eps=0: coefficientwise (*) holds for d <= 13 (needed d <= 13): OK
+N=18 (n=19) eps=1: coefficientwise (*) holds for d <= 12 (needed d <= 12): OK
+N=19 (n=20) eps=0: coefficientwise (*) holds for d <= 14 (needed d <= 14): OK
+N=19 (n=20) eps=1: coefficientwise (*) holds for d <= 13 (needed d <= 13): OK
+N=20 (n=21) eps=0: coefficientwise (*) holds for d <= 15 (needed d <= 15): OK
+N=20 (n=21) eps=1: coefficientwise (*) holds for d <= 14 (needed d <= 14): OK
+N=21 (n=22) eps=0: coefficientwise (*) holds for d <= 16 (needed d <= 16): OK
+N=21 (n=22) eps=1: coefficientwise (*) holds for d <= 15 (needed d <= 15): OK
+N=22 (n=23) eps=0: coefficientwise (*) holds for d <= 17 (needed d <= 17): OK
+N=22 (n=23) eps=1: coefficientwise (*) holds for d <= 16 (needed d <= 16): OK

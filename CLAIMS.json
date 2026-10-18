@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "version": "1.0.0",
+  "status": "unrefereed-candidate",
+  "creator": "Anonymous",
+  "claims": [
+    {"id":"UMSR-EXISTENCE","class":"written-theorem","statement":"For n>=7, a UMSR graph exists for m=n-1 or m>=binom(n,2)-n+2, and none exists for n<=m<=binom(n,2)-n-1.","locator":"paper/split_reliability.md: main theorem","dependencies":["Romero local-candidate theorem","Petingi-Saccoman-Schoppmann dense least-reliability theorem","written competitor and exchange arguments"]},
+    {"id":"UMSR-FINITE51","class":"computer-assisted-finite-theorem","statement":"For 7<=n<=51, existence holds exactly for m=n-1 or m>=binom(n,2)-n.","locator":"paper/split_reliability.md: main theorem and computational verification","evidence":["cone_star2.py","verification/replay_cones.py","verification/base_cases.py"],"limitation":"Requires written reduction and small-order base cases; not unrestricted order."},
+    {"id":"UMSR-IDENTITY","class":"written-identity","statement":"SR(H)=Rel(H/st)-Rel(H); discarding a terminal loop requires coefficient degree elevation.","locator":"paper/split_reliability.md: preliminaries","evidence":["verification/independent_sanity.py"]},
+    {"id":"UMSR-INTERVALS","class":"written-theorem","statement":"For N>=7, 3<=s<h<=N-1 and d=h-s, the cone comparison holds on [1/2,1], strictly below 1; the target epsilon family also admits the explicit small-p interval with R>1.","locator":"paper/split_reliability.md: cone comparison on explicit probability intervals","limitation":"The middle probability interval remains unresolved; no all-order uniform boundary result."},
+    {"id":"UMSR-EXCEPTIONS","class":"exact-finite-check","statement":"First-excluded coefficientwise comparisons hold for (N,epsilon,d)=(7,0,3),(7,1,2),(8,1,3),(9,1,4),(10,1,5).","evidence":["verification/replay_cones.py","verification/independent_sanity.py"],"limitation":"These are exceptions to an ancillary excluded-range assertion, not failures in the required range."},
+    {"id":"UMSR-OPEN","class":"open-boundary","statement":"For unrestricted n, the two edge counts binom(n,2)-n and binom(n,2)-n+1 remain conditional."}
+  ]
+}
